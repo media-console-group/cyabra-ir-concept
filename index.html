@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Cyabra, Inc. (Nasdaq: CYAB) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the Cyabra (Nasdaq: CYAB) investor relations page. Not affiliated with Cyabra, Inc.; the official IR site is https://invest.cyabra.com/.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300..600&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "#ec4824,accent-2=#fdb813,deep=#071010" --neutral-hue 195 --strategy full-palette  (full-palette)
+     accent   #ec4824 oklch(0.633 0.206 33.7)   real: the vermilion end of the logo mark gradient (logo.svg stop #EC4824)
+     accent-2 #fdb813 oklch(0.825 0.168 80.8)   real: the amber end of the same gradient (logo.svg stop #FDB813; favicon samples #f99500)
+     deep     #071010 oklch(0.164 0.014 195.9)  real: the wordmark ink in logo.svg (#071010)
+     measured: white on --accent-ink 7.74:1, --accent-ink on --paper 7.53:1, --text-mid on --tint 5.61:1, white on --accent-2-ink 7.21:1 */
+  --H: 33.7; --Hn: 195;
+  --accent:        oklch(0.633 0.206 33.7); /* bright vermilion: FILLS and strokes on light stock; text only on dark (accent on deep 5.06:1) */
+  --accent-lo:     oklch(0.633 0.206 33.7 / 0.14);
+  --accent-lt:     oklch(0.86 0.076 33.7);  /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.166 33.7);  /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.144 33.7);  /* hover */
+  --accent-2:      oklch(0.825 0.168 80.8); /* real amber: fills, strokes, marks; text on dark (11.04:1) */
+  --accent-2-lt:   oklch(0.86 0.134 80.8);
+  --accent-2-ink:  oklch(0.46 0.095 80.8);
+  --ink:           oklch(0.26 0.005 195);   /* headings */
+  --deep:          oklch(0.164 0.014 195.9);/* hero and the permanently dark bands (the logo wordmark ink) */
+  --deep-2:        oklch(0.125 0.012 195.9);/* gravest band (disclosures) and footer: darker than the hero, same hue, no added chroma */
+  --paper:         oklch(0.99 0.004 195);
+  --card:          oklch(0.996 0.004 195);
+  --tint:          oklch(0.965 0.017 33.7); /* .sec-tint band, concept note, card interiors */
+  --tint-2:        oklch(0.91 0.035 33.7);  /* borders, ghost outlines, the darker of two light bands */
+  --text:          oklch(0.31 0.005 195);
+  --text-mid:      oklch(0.49 0.005 195);
+  --line:          oklch(0.30 0.010 195 / 0.13);
+  --line-d:        oklch(0.98 0.009 33.7 / 0.14);
+  /* surface-slot defaults (foundation surface block); retuned in surface.css */
+  --sheet-edge:    oklch(0.40 0.144 33.7 / 0.26);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.009 33.7 / 0.05);
+  /* Cyabra: Plus Jakarta Sans is a real face of the company's own site (display weights 800 and 200 for contrast; also body). Martian Mono carries labels, dates and citations only.
+     Figures are set in Plus Jakarta Sans with tabular-nums (its zero is plain). Martian Mono is never used for a figure. */
+  --serif:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --sans:          'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono:          'Martian Mono', ui-monospace, monospace;
+  --wrap: 1180px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:component wave */
+/* wave: hardened wave-field hero (new: only, D26; never on two consecutive companies). Band: dark (.hero.sec-dark).
+   Integrity: stroke comes from --motif-stroke (brand accent, never white); tune via these custom props, never the JS;
+   pointer-events:none so the field can never swallow a tap. Raise --motif-gap before touching anything else (cost). */
+.hero{position:relative;overflow:hidden;padding:0;background-color:var(--deep);color:oklch(0.90 0.008 var(--Hn))}
+.hero :focus-visible{outline-color:var(--accent-lt)}
+.hero-inner{position:relative;z-index:1;padding-block:clamp(72px,11vw,132px)}
+.wave-motif{position:absolute;inset:0;z-index:0;pointer-events:none;--motif-stroke:var(--accent-lt);--motif-stroke-op:.26;--motif-gap:8}
+.wave-motif.paused{opacity:.9;transition:opacity .4s var(--ease)}
+/* mc:layer */
+/* Cyabra visible layer. Archetype: magazine-grid (a 12-column page; every section is a spread whose cells take different spans; running folios; calendar ledger).
+   Signature: "flood and signal". A flood of grey lines in the hero with one bundle flagged vermilion; a folio hairline that sweeps once on reveal;
+   the share-count plate where one block is one million shares and the securities issued since July run past the shares outstanding.
+   Type: Plus Jakarta Sans at weights 200 and 800 for display contrast; Martian Mono for labels, dates and citations only. Every figure is Plus Jakarta Sans, tabular-nums. */
+
+/* ---------- type ---------- */
+body{font-feature-settings:"kern","liga"}
+h1,h2,h3{font-family:var(--serif);letter-spacing:-.03em}
+h2{font-weight:800;font-size:clamp(1.95rem,4vw,3.25rem);line-height:1.04;letter-spacing:-.035em;color:var(--ink);max-width:19ch}
+h2 .lt,h1 .lt{font-weight:200;letter-spacing:-.03em}
+header.s12 h2{max-width:30ch}
+.cap-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;padding:0!important;border:0!important}
+.lead{font-size:clamp(1.02rem,1.5vw,1.2rem);line-height:1.6;color:var(--text-mid);margin-top:20px;max-width:56ch}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em}
+.eyebrow::before{background:linear-gradient(90deg,var(--accent-2),var(--accent));width:18px;height:3px;border-radius:0}
+.src-l{font-family:var(--mono);font-size:.68em;letter-spacing:0;white-space:nowrap;color:var(--accent-ink);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;margin-left:.2em}
+.src-l:hover{text-decoration-style:solid}
+.sec-dark .src-l,.hero .src-l{color:var(--accent-lt)}
+.doc-l{font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mini-h{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-top:2px solid var(--ink);padding-top:11px;margin-bottom:18px;line-height:1.3}
+.tbl-note,.plate-cap,.team-note{font-size:.82rem;line-height:1.6;color:var(--text-mid);margin-top:14px;max-width:64ch}
+
+/* ---------- the magazine grid ---------- */
+.mag{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(34px,4.6vw,60px) clamp(18px,2.4vw,32px);align-items:start}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:1 / -1}
+main>section{padding:clamp(64px,8.4vw,112px) 0}
+
+/* folio: the running head of each spread, a number, a department, a hairline that sweeps once, a source */
+.folio{display:grid;grid-template-columns:auto auto minmax(24px,1fr) auto;align-items:center;gap:14px;margin-bottom:clamp(30px,4.4vw,54px)}
+.folio-n{font-family:var(--sans);font-weight:800;font-size:1.05rem;font-variant-numeric:tabular-nums;color:var(--accent-ink);letter-spacing:-.01em}
+.folio-t{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.folio-s{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;color:var(--text-mid);text-align:right}
+.folio-rule{display:block;height:2px;background:linear-gradient(90deg,var(--accent-2),var(--accent));transform-origin:left center;transition:transform 1.5s var(--ease)}
+.js .reveal:not(.in) .motif-rule{transform:scaleX(0)}
+.sec-dark .folio-n{color:var(--accent-2-lt)}.sec-dark .folio-t{color:#fff}.sec-dark .folio-s{color:oklch(.78 .008 195)}
+
+/* ---------- hero ---------- */
+.hero{min-height:clamp(560px,88vh,840px);display:flex;align-items:center}
+.hero-inner{width:min(var(--wrap),100% - 44px);padding-block:clamp(60px,9vw,120px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.36fr) minmax(0,.84fr);gap:clamp(28px,5.6vw,80px);align-items:end}
+.hero h1{font-weight:200;font-size:clamp(2.5rem,5.4vw,4.7rem);line-height:.98;letter-spacing:-.04em;color:oklch(.93 .006 195);max-width:11ch}
+.hero h1 b{font-weight:800;color:#fff;display:block}
+.hero .eyebrow{color:var(--accent-2-lt)}
+.hero .lead{color:oklch(.84 .008 195);margin-top:26px;max-width:52ch;font-weight:400}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-pause{font-size:.76rem}
+.hero-facts{display:grid;gap:0;border-bottom:1px solid var(--line-d)}
+.hf{padding:17px 0 16px;border-top:1px solid var(--line-d);display:grid;gap:5px}
+.hf-v{font-family:var(--sans);font-weight:700;font-size:clamp(1.75rem,2.9vw,2.5rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:#fff}
+.hf-k{font-size:.82rem;line-height:1.5;color:oklch(.8 .008 195);max-width:44ch}
+.hf-flag .hf-v{color:var(--accent-2-lt);font-weight:800}
+.hero-owl{position:absolute;z-index:0;right:-8vw;top:50%;width:min(66vw,780px);height:auto;transform:translateY(-50%);opacity:.07;pointer-events:none}
+.hero-inner{position:relative;z-index:1}
+/* the wave field is a flood: grey lines, one bundle flagged vermilion at the left margin, two amber singles. Tune with the custom properties, never the JS. */
+#hero-motif{--motif-stroke:oklch(.86 .012 195);--motif-stroke-op:.15;--motif-gap:9}
+.wave-motif svg path:nth-child(n+10):nth-child(-n+17){stroke:var(--accent);stroke-opacity:.82}
+.wave-motif svg path:nth-child(20),.wave-motif svg path:nth-child(23){stroke:var(--accent-2);stroke-opacity:.6}
+/* a scan line crosses the field; it starts and ends off-screen, so the base state is the finished state */
+.motif-scan{position:absolute;top:0;bottom:0;left:0;width:2px;transform:translateX(-4vw);background:linear-gradient(180deg,transparent 0,var(--accent-2) 28%,var(--accent) 72%,transparent 100%);opacity:.5;animation:cy-scan 19s linear infinite}
+@keyframes cy-scan{0%{transform:translateX(-4vw)}100%{transform:translateX(104vw)}}
+
+/* ---------- business spread ---------- */
+.steps{list-style:none;margin-top:30px;border-top:2px solid var(--ink);max-width:58ch}
+.steps li{display:grid;grid-template-columns:1.6rem 5.6rem minmax(0,1fr);gap:4px 12px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.step-n{font-family:var(--mono);font-size:.7rem;color:var(--accent-ink);font-weight:500}
+.step-h{font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.step-t{font-size:.9rem;line-height:1.55;color:var(--text)}
+.fig-cluster{margin-top:30px;max-width:58ch}
+.fig-cluster svg{width:100%;height:auto;overflow:visible}
+.cl-real{fill:oklch(.62 .008 195 / .5)}
+.cl-fake{fill:var(--accent)}
+.cl-edge{stroke:var(--accent);stroke-opacity:.5;stroke-width:1;stroke-dasharray:var(--len);stroke-dashoffset:0;transition:stroke-dashoffset 1.4s var(--ease)}
+.js .reveal:not(.in) .motif-edge{stroke-dashoffset:var(--len)}
+.cl-src{fill:var(--accent-2);stroke:var(--accent);stroke-width:1.6}
+figcaption{font-size:.8rem;line-height:1.55;color:var(--text-mid);margin-top:11px;max-width:60ch}
+.fig-scan{background:var(--tint);border-radius:16px;padding:clamp(12px,2vw,22px) clamp(12px,2vw,22px) 16px;margin-top:6px}
+.fig-scan img{width:100%;height:auto}
+.pull{margin:0;border-top:5px solid var(--ink);padding-top:22px;align-self:start}
+.pull p{font-weight:300;font-style:italic;font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.2;letter-spacing:-.025em;color:var(--ink);max-width:22ch}
+.pull-src{display:block;font-style:normal;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--text-mid);margin-top:18px;line-height:1.6}
+.earn-list div{display:grid;grid-template-columns:9.4rem minmax(0,1fr);gap:6px 20px;padding:17px 0;border-top:1px solid var(--line)}
+.earn-list div:first-child{border-top:0;padding-top:4px}
+.earn-list dt{font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.earn-list dd{font-size:.9rem;line-height:1.6}
+.fig-chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 12px 4px}
+.fig-chart img{width:100%;height:auto;border-radius:8px}
+.roster{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.roster li{display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:13px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);transition:background .25s var(--ease)}
+.roster li:hover{background:var(--tint)}
+.mono-i{grid-row:span 2;width:38px;height:38px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;font-weight:500}
+.rn{font-weight:700;color:var(--ink);font-size:.93rem;line-height:1.2}
+.rr{font-size:.76rem;color:var(--text-mid);line-height:1.35}
+.site-note{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:.82rem;line-height:1.6;color:var(--text)}
+.site-note b{color:var(--ink)}
+
+/* ---------- spread helpers ---------- */
+.vis{display:grid;gap:18px;align-content:start}
+.vis .fig-scan{margin-top:0}
+.vis .fig-cluster{margin-top:0;max-width:none;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 12px}
+.stack{display:grid;gap:clamp(28px,3.6vw,44px)}
+.stack .plate .mini-h{margin-top:0}
+.inside p{font-size:.95rem;line-height:1.66;color:var(--text);margin-top:12px}
+.vote-t{font-size:.92rem;line-height:1.64;color:var(--text);margin-bottom:12px}
+.forms{margin-top:30px;max-width:46ch;border-top:2px solid var(--ink)}
+.forms div{display:grid;grid-template-columns:4.8rem minmax(0,1fr);gap:4px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.forms dt{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--accent-ink);padding-top:2px}
+.forms dd{font-size:.86rem;line-height:1.55;color:var(--text)}
+.mg-plate{margin-top:30px;max-width:52ch}
+.rv-merger .rv-row,.mg-plate .rv-row{grid-template-columns:7.2rem minmax(0,1fr) 3.8rem}
+@media (min-width:901px){.sticky-h{position:sticky;top:104px;align-self:start}}
+
+/* ---------- plates and tables ---------- */
+.plate{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.4vw,28px)}
+.plate .mini-h{margin-top:0}
+.rv-g+.rv-g{margin-top:16px}
+.rv-gh{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);margin-bottom:7px}
+.rv-row,.rv-axis{display:grid;grid-template-columns:5.8rem minmax(0,1fr) 4rem;gap:10px;align-items:center}
+.rv-row{padding:3px 0}
+.rv-l{font-size:.8rem;color:var(--text);line-height:1.25}
+.rv-track{position:relative;display:block;height:15px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 33.3333%)}
+.rv-bar{display:block;height:100%;width:var(--w);transform-origin:left center;transition:transform 1.2s var(--ease)}
+.rv-ink{background:var(--ink)}.rv-amb{background:var(--accent-2)}
+.rv-v{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:600;font-size:.84rem;text-align:right;color:var(--ink)}
+.rv-axis{margin-top:8px}
+.rv-axt{grid-column:2;position:relative;height:1.3em;display:block;font-family:var(--mono);font-size:.62rem;color:var(--text-mid)}
+.rv-axt span{position:absolute;left:var(--x);transform:translateX(-50%)}
+.rv-axt span:first-child{transform:none}.rv-axt span:last-child{transform:translateX(-100%)}
+.js .reveal:not(.in) .motif-grow{transform:scaleX(0)}
+.rv-cash .rv-row{grid-template-columns:7.6rem minmax(0,1fr) 4rem}
+.rv-cash .rv-axis{grid-template-columns:7.6rem minmax(0,1fr) 4rem}
+
+table.fin{font-size:.88rem}
+table.fin td.num,table.fin th.num{text-align:right}
+table.fin td.num{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap;font-size:.9rem}
+table.fin th[scope=row]{font-weight:500;color:var(--ink)}
+table.fin thead th{font-family:var(--serif);font-weight:800;font-size:.84rem;vertical-align:bottom;letter-spacing:-.01em}
+table.fin thead th small{display:block;font-family:var(--sans);font-size:.62rem;font-weight:500;letter-spacing:0;color:var(--text-mid);margin-top:3px;line-height:1.3}
+table.fin tr.tot th,table.fin tr.tot td{font-weight:800}
+table.fin tbody tr{transition:background .2s var(--ease)}
+table.fin tbody tr:hover th,table.fin tbody tr:hover td{background:var(--tint)}
+table.fin td.terms{font-size:.84rem;color:var(--text);line-height:1.5}
+table.fin td.d{font-family:var(--mono);font-size:.74rem;color:var(--accent-ink);white-space:nowrap}
+table.fin td.lk{text-align:right}
+table.fin.fl-t{min-width:0}
+table.glance{min-width:0}
+table.fin th,table.fin td{padding:12px 18px}
+.table-scroll{border-radius:12px}
+
+/* ---------- shares: the merger ledger and the flood plate ---------- */
+.mech{list-style:none;border-top:2px solid var(--ink)}
+.mech li{display:grid;grid-template-columns:8.6rem minmax(0,1fr);gap:6px 24px;padding:18px 4px;border-bottom:1px solid var(--line);transition:background .3s var(--ease)}
+.mech li:hover{background:var(--tint)}
+.mech-d{font-family:var(--mono);font-size:.7rem;letter-spacing:.03em;font-weight:500;color:var(--accent-ink);line-height:1.5;padding-top:3px}
+.mech-t{font-size:.93rem;line-height:1.62}
+.mech-t b,.cal-t b{font-weight:800;color:var(--ink);margin-right:.35em;letter-spacing:-.01em}
+.flood{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,2.8vw,34px)}
+.flood .mini-h{margin-top:0}
+.fl{--p:10.5px}
+.fl-row{display:grid;grid-template-columns:15.5rem minmax(0,1fr) 4.4rem;gap:14px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.fl-row:first-child{border-top:0}
+.fl-l b{display:block;font-weight:700;color:var(--ink);font-size:.9rem;line-height:1.25}
+.fl-l small{display:block;font-size:.72rem;line-height:1.35;color:var(--text-mid);margin-top:2px}
+.fl-bar{display:block;height:22px;width:calc(var(--n) * var(--p));max-width:100%;background:repeating-linear-gradient(90deg,var(--tk) 0 calc(var(--p) - 2px),transparent calc(var(--p) - 2px) var(--p));transform-origin:left center;transition:transform 1.4s var(--ease)}
+.fl-ink{--tk:var(--ink)}.fl-ink2{--tk:oklch(.46 .006 195)}.fl-amb{--tk:var(--accent-2)}.fl-verm{--tk:var(--accent)}.fl-verm2{--tk:oklch(.78 .11 33.7)}.fl-ring{--tk:oklch(.74 .006 195)}
+.fl-v{font-family:var(--sans);font-variant-numeric:tabular-nums;font-weight:700;font-size:.9rem;text-align:right;color:var(--ink)}
+.fl-row:nth-child(2) .fl-bar{transition-delay:.08s}.fl-row:nth-child(3) .fl-bar{transition-delay:.16s}.fl-row:nth-child(4) .fl-bar{transition-delay:.24s}.fl-row:nth-child(5) .fl-bar{transition-delay:.32s}.fl-row:nth-child(6) .fl-bar{transition-delay:.4s}
+
+/* ---------- the calendar ledger ---------- */
+.rec-head{margin-bottom:clamp(26px,4vw,46px)}
+.cal{list-style:none}
+.cal-m{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,10fr);gap:12px clamp(18px,2.4vw,32px);padding:22px 0 14px;border-top:2px solid var(--ink)}
+.cal-h{font-weight:800;font-size:clamp(2rem,4.6vw,3.7rem);line-height:.9;letter-spacing:-.05em;color:var(--ink);margin-top:2px}
+.cal-l{list-style:none}
+.cal-l li{display:grid;grid-template-columns:7.2rem minmax(0,1fr);gap:4px 20px;padding:13px 6px;border-bottom:1px solid oklch(1 0 0 / .85);transition:background .25s var(--ease)}
+.cal-l li:last-child{border-bottom:0}
+.cal-l li:hover{background:oklch(1 0 0 / .55)}
+.cal-d{font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--accent-ink);line-height:1.6;padding-top:2px}
+.cal-t{font-size:.93rem;line-height:1.62}
+
+/* ---------- disclosures: the gravest band. Heavier type, a tighter measure, no colour that is louder than the words ---------- */
+.dis h2,.dis .lead{color:#fff}
+.dis .lead{color:oklch(.84 .008 195)}
+.dis h2{font-size:clamp(2.2rem,4.6vw,3.7rem)}
+.dis-head{align-self:start}
+.gc{border:1px solid var(--line-d);background:oklch(.165 .012 195.9);padding:clamp(22px,3.2vw,40px)}
+.gc-k{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-2-lt);margin-bottom:16px}
+.gc-k .src-l{text-transform:none;letter-spacing:0;font-size:.95em}
+.gc-q p{font-size:clamp(1.05rem,1.55vw,1.25rem);line-height:1.62;font-weight:500;color:#fff;max-width:60ch}
+.gc-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px clamp(20px,3vw,40px);margin-top:26px;padding-top:22px;border-top:1px solid var(--line-d)}
+.gc-h{font-family:var(--sans);font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:oklch(.78 .008 195);margin-bottom:9px}
+.gc-pair p{font-size:.92rem;line-height:1.62;color:oklch(.9 .006 195)}
+.gc-f{margin-top:22px;font-size:.86rem;color:oklch(.78 .008 195)}
+.dis-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,4.4vw,64px)}
+.dis-i{display:grid;grid-template-columns:3.1rem minmax(0,1fr);padding:26px 0 24px;border-top:1px solid var(--line-d)}
+.dis-n{font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--accent-2-lt);padding-top:6px}
+.dis-b h3{color:#fff;font-weight:800;font-size:1.2rem;letter-spacing:-.025em;margin-bottom:9px;line-height:1.2}
+.dis-b p{font-size:.9rem;line-height:1.68;color:oklch(.86 .007 195);max-width:60ch}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,44px)}
+.contact-col p{margin-bottom:6px}
+.contact-col address{font-style:normal;font-size:.95rem;line-height:1.7;color:var(--text)}
+.contact-col .doc-l{font-size:.82rem;display:inline-flex;align-items:center;min-height:36px}
+
+/* ---------- footer ---------- */
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:22px 40px;flex-wrap:wrap}
+.footer-logo img{width:150px;height:auto}
+.footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:4px 26px}
+.footer-links a{font-size:.86rem;color:oklch(.86 .008 195);transition:color .2s var(--ease)}
+.footer-links a:hover{color:#fff}
+
+/* ---------- amplification pass (impeccable bolder): scale, weight contrast, one focal idea per fold. No new hue; motion is transitions from the .reveal gate plus the hero loop inside #hero-motif ---------- */
+/* hero: a bigger line, a wider column for it, a first fact that leads, a scan with a trailing glow */
+.hero{min-height:clamp(620px,92vh,880px)}
+.hero-grid{grid-template-columns:minmax(0,1.62fr) minmax(0,.78fr);gap:clamp(28px,5vw,72px)}
+.hero h1{font-size:clamp(2.7rem,6.3vw,5.9rem);line-height:.94;letter-spacing:-.045em;max-width:none}
+.hero .lead{font-size:clamp(1.02rem,1.45vw,1.18rem);max-width:54ch}
+.hf:first-child .hf-v{font-size:clamp(2.5rem,4.4vw,3.9rem)}
+.hf:first-child{padding-top:22px}
+.hf-flag{border-top-color:oklch(.96 .004 195 / .55)}
+.hero-owl{width:min(72vw,860px);opacity:.075}
+.motif-scan{width:150px;transform:translateX(-12vw);opacity:.9;
+  background:linear-gradient(90deg,transparent 0,oklch(0.633 0.206 33.7 / 0.10) 88%,var(--accent-2) 88%,var(--accent-2) calc(88% + 2px),transparent calc(88% + 2px));
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 78%,transparent 100%)}
+@keyframes cy-scan{0%{transform:translateX(-12vw)}100%{transform:translateX(106vw)}}
+
+/* folios: an oversized weight-200 numeral whose baseline carries the sweeping hairline */
+.folio{align-items:end;gap:clamp(12px,1.6vw,22px);margin-bottom:clamp(34px,5vw,64px)}
+.folio-n{font-weight:200;font-size:clamp(3.4rem,7.6vw,6.4rem);line-height:.78;letter-spacing:-.06em;color:var(--ink)}
+.folio-t,.folio-s{padding-bottom:.3rem}
+.folio-rule{height:3px;margin-bottom:.7rem}
+.sec-dark .folio-n{color:oklch(.96 .004 195)}
+.js .reveal:not(.in) .folio-n{opacity:0;transform:translateY(.22em)}
+.folio-n{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+
+/* section heads */
+h2{font-size:clamp(2.2rem,4.8vw,4.2rem);line-height:1;max-width:17ch}
+header.s12 h2{max-width:30ch}
+.pull p{font-size:clamp(1.7rem,3.2vw,2.8rem);line-height:1.14;max-width:20ch}
+.pull{border-top-width:8px}
+.roster li:hover .mono-i{background:var(--accent-ink)}
+.mono-i{transition:background .25s var(--ease)}
+
+/* plates: thicker bars, heavier figures, a printed offset edge */
+.plate,.vis .fig-cluster,.fig-chart,.fig-scan{box-shadow:7px 7px 0 var(--tint-2)}
+.sec-tint .plate{box-shadow:7px 7px 0 oklch(1 0 0 / .85)}
+.rv-track{height:20px}
+.rv-l{font-size:.82rem;font-weight:500}
+.rv-v{font-size:.98rem;font-weight:700}
+.rv-gh{margin-bottom:9px}
+.rv-g+.rv-g{margin-top:20px}
+
+/* the flood plate becomes a dark inset: the one place the count is the whole picture */
+.flood{background-color:var(--deep);border:0;border-radius:6px;color:oklch(.9 .006 195);box-shadow:9px 9px 0 var(--tint-2)}
+.flood .mini-h{color:#fff;border-top-color:oklch(.96 .004 195)}
+.fl{--p:10.5px}
+.fl-row{border-top-color:var(--line-d);padding:12px 0}
+.fl-l b{color:#fff;font-size:.95rem}
+.fl-l small{color:oklch(.78 .008 195)}
+.fl-bar{height:28px}
+.fl-v{color:#fff;font-size:1.3rem;font-weight:700;letter-spacing:-.02em}
+.flood .fl-ink{--tk:oklch(.96 .004 195)}
+.flood .fl-ink2{--tk:oklch(.74 .006 195)}
+.flood .fl-amb{--tk:var(--accent-2)}
+.flood .fl-verm{--tk:var(--accent)}
+.flood .fl-verm2{--tk:oklch(.8 .1 33.7)}
+.flood .fl-ring{--tk:oklch(.52 .006 195)}
+.flood .plate-cap{color:oklch(.8 .008 195)}
+.flood .src-l{color:var(--accent-lt)}
+
+/* the calendar: month rules draw in, a flag tab marks each start, entries file in */
+.cal-m{position:relative;border-top:0;padding:30px 0 16px;grid-template-columns:minmax(0,2.3fr) minmax(0,9.7fr)}
+.cal-m::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--ink);transform-origin:left center;transition:transform 1.3s var(--ease)}
+.cal-m::after{content:"";position:absolute;left:0;top:-2px;width:72px;height:6px;background:linear-gradient(90deg,var(--accent-2),var(--accent));transform-origin:left center;transition:transform .7s var(--ease) .45s}
+.js .cal-m.reveal:not(.in)::before,.js .cal-m.reveal:not(.in)::after{transform:scaleX(0)}
+.cal-h{font-size:clamp(2.7rem,6.8vw,5.8rem);letter-spacing:-.055em}
+.cal-d::before{content:"";display:inline-block;width:6px;height:6px;margin-right:9px;background:var(--accent);vertical-align:.08em}
+.cal-l li{transition:background .25s var(--ease),opacity .7s var(--ease),transform .7s var(--ease)}
+.js .cal-m.reveal:not(.in) .cal-l li{opacity:0;transform:translateY(12px)}
+.cal-l li:nth-child(2){transition-delay:0s,.07s,.07s}.cal-l li:nth-child(3){transition-delay:0s,.14s,.14s}.cal-l li:nth-child(4){transition-delay:0s,.21s,.21s}.cal-l li:nth-child(5){transition-delay:0s,.28s,.28s}.cal-l li:nth-child(1){transition-delay:0s,.2s,.2s}
+
+/* disclosures: the gravest band, heavier and larger, still without a colour field */
+main>section.dis{padding:clamp(88px,11vw,156px) 0}
+.dis h2{font-size:clamp(2.6rem,5.8vw,5rem);line-height:.96}
+.gc{border-top:3px solid oklch(.96 .004 195);background:oklch(.145 .012 195.9)}
+.gc-q p{font-size:clamp(1.15rem,1.9vw,1.5rem);line-height:1.55;font-weight:500}
+.dis-i{grid-template-columns:4.4rem minmax(0,1fr);padding:32px 0 30px;border-top-color:oklch(1 0 0 / .2)}
+.dis-n{font-family:var(--sans);font-size:2.1rem;font-weight:200;letter-spacing:-.04em;line-height:1;color:oklch(.96 .004 195);padding-top:0;font-variant-numeric:tabular-nums}
+.dis-b h3{font-size:1.4rem;font-weight:800}
+.dis-b p{font-size:.93rem}
+.dis .folio-rule{opacity:.9}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .fl{--p:7px}
+  .fl-row{grid-template-columns:12rem minmax(0,1fr) 4rem}
+  .earn-list div{grid-template-columns:7.4rem minmax(0,1fr)}
+}
+@media (max-width:900px){
+  .mag>*,.s3,.s4,.s5,.s6,.s7,.s8{grid-column:1 / -1}
+  .wave-motif svg path:nth-child(n+10):nth-child(-n+17),.wave-motif svg path:nth-child(20),.wave-motif svg path:nth-child(23){stroke:oklch(.86 .012 195);stroke-opacity:.15}
+  .wave-motif svg path:nth-child(n+34):nth-child(-n+37){stroke:var(--accent);stroke-opacity:.85}
+  h2{max-width:22ch}
+  .hero{min-height:0}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-owl{right:-30vw;width:110vw;opacity:.06}
+  .pull{align-self:start}
+  .dis-list{grid-template-columns:1fr}
+  .gc-pair,.contact-grid{grid-template-columns:1fr}
+  .cal-m{grid-template-columns:1fr;gap:6px}
+  .cal-h{font-size:clamp(2.2rem,11vw,3.2rem)}
+}
+@media (max-width:700px){
+  .folio{grid-template-columns:auto minmax(0,1fr) minmax(24px,.5fr);row-gap:4px}
+  .folio-s{grid-column:1 / -1;text-align:left;order:4}
+  .fl{--p:3.5px}
+  .fl-row{grid-template-columns:1fr 4rem;gap:4px 10px}
+  .fl-l{grid-column:1 / -1}
+  .rv-row,.rv-axis,.rv-cash .rv-row,.rv-cash .rv-axis{grid-template-columns:4.7rem minmax(0,1fr) 3.4rem;gap:8px}
+  .rv-cash .rv-row,.rv-cash .rv-axis{grid-template-columns:5.9rem minmax(0,1fr) 3.4rem}
+  .earn-list div{grid-template-columns:1fr;gap:4px}
+  .mech li{grid-template-columns:1fr;gap:4px;padding:16px 2px}
+  .cal-l li{grid-template-columns:1fr;gap:3px;padding:12px 2px}
+  .dis-i{grid-template-columns:3.1rem minmax(0,1fr)}
+  .dis-n{font-size:1.6rem}
+  .fl-bar{height:22px}
+  .fl-v{font-size:1.05rem}
+  .plate,.vis .fig-cluster,.fig-chart,.fig-scan,.flood{box-shadow:5px 5px 0 var(--tint-2)}
+  .sec-tint .plate{box-shadow:5px 5px 0 oklch(1 0 0 / .85)}
+  .steps li{grid-template-columns:1.4rem 4.8rem minmax(0,1fr)}
+  .hero h1{font-size:clamp(2.5rem,12.4vw,3.7rem)}
+  .hf:first-child .hf-v{font-size:clamp(2.3rem,11vw,3rem)}
+  table.fin{min-width:0}
+  table.fin:not(.cmp) thead{display:none}
+  table.fin caption{white-space:normal}
+  table.fin:not(.cmp) tr{display:block;padding:12px 6px;border-bottom:1px solid var(--line)}
+  table.fin:not(.cmp) th[scope=row]{display:block;padding:0 0 6px;border:0}
+  table.fin:not(.cmp) td{display:flex;justify-content:space-between;gap:16px;padding:4px 0;border:0;text-align:right}
+  table.fin:not(.cmp) td::before{content:attr(data-label);font-family:var(--sans);font-size:.72rem;color:var(--text-mid);text-align:left;white-space:normal}
+  table.fin td.terms{display:block;text-align:left}
+  table.fin td.terms::before{display:block;margin-bottom:2px}
+  table.fin td.lk{display:block;text-align:left}
+  table.fin td.lk::before{display:none}
+  table.fin td.lk .doc-l{display:inline-flex;align-items:center;min-height:44px}
+  table.cmp{min-width:0;font-size:.74rem}
+  table.cmp th,table.cmp td{padding:9px 6px}
+  table.cmp th[scope=row]{font-size:.76rem;line-height:1.3}
+  table.cmp td.num{font-size:.74rem;padding-left:2px;padding-right:8px}
+  table.cmp thead th{font-size:.7rem;padding:10px 6px;padding-right:8px}
+  table.cmp thead th small{display:none}
+  table.cmp thead th{white-space:nowrap}
+  .table-scroll{overflow-x:auto}
+  table.fl-t tr{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px}
+  table.fl-t th[scope=row]{grid-column:2;grid-row:1;padding-bottom:2px}
+  table.fl-t td.d{grid-column:1;grid-row:1}
+  table.fl-t td.d::before{display:none}
+  table.fl-t td.terms{grid-column:1 / -1}
+  table.fl-t td.terms::before{display:none}
+  table.fl-t td.lk{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){
+  .motif-rule,.motif-grow,.motif-edge,.fl-bar,.folio-n,.cal-l li,.cal-m::before,.cal-m::after,.mono-i{transition:none!important}
+  .js .reveal:not(.in) .folio-n,.js .cal-m.reveal:not(.in) .cal-l li{opacity:1;transform:none}
+  .js .cal-m.reveal:not(.in)::before,.js .cal-m.reveal:not(.in)::after{transform:none}
+  .js .reveal:not(.in) .motif-rule,.js .reveal:not(.in) .motif-grow{transform:none}
+  .js .reveal:not(.in) .motif-edge{stroke-dashoffset:0}
+  .motif-scan{display:none}
+}
+/* mc:surface */
+/* Cyabra surface system. Derived from the signature (a flood of lines with one flagged bundle) and the magazine grid: each band carries column ticks at the 12-column
+   boundaries (the printer's marks of a layout), so the grid the page is built on is visible at the top edge of every spread.
+   Polarity: printed dark marks and a head wash on white stock, BLIND WHITE baseline ruling on tinted stock, negative marks and guides on dark.
+   Every stock sets background-image, -size, -position and -repeat as index-aligned lists (the longhands are required: size, position and repeat are
+   not valid inside a background-image list). Do not reorder the layers. No ruling or pattern ever sits behind a data table: tables sit on --card.
+   Five distinct stocks: white, tint, hero (vermilion and amber fields), gravest (guides and vignette), footer. */
+:root{
+  --sheet-edge: oklch(0.40 0.144 33.7 / 0.28);
+  --blind:      oklch(1 0 0 / 0.42);
+  --blind-k:    oklch(1 0 0 / 0.9);
+  --sheet-neg:  oklch(0.98 0.009 33.7 / 0.055);
+  --tick:       oklch(0.26 0.005 195 / 0.30);
+  --tick-neg:   oklch(0.86 0.076 33.7 / 0.5);
+  --guide-neg:  oklch(1 0 0 / 0.05);
+}
+
+/* white stock: column ticks on top, a head wash from tint to paper over 240px under them */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tick) 0 1px, transparent 1px calc(100% / 12)),
+    linear-gradient(var(--tick),var(--tick)),
+    linear-gradient(to bottom, var(--tint) 0, var(--paper) 240px);
+  background-size:
+    min(1180px, 100% - 44px) 9px,
+    1px 9px,
+    100% 240px;
+  background-position:
+    center top,
+    calc(50% + min(590px, 50% - 22px)) top,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* tinted stock: BLIND WHITE ruling (a baseline every 28px and a heavier rule every 140px) under the column ticks */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tick) 0 1px, transparent 1px calc(100% / 12)),
+    linear-gradient(var(--tick),var(--tick)),
+    repeating-linear-gradient(180deg, var(--blind-k) 0 2px, transparent 2px 140px),
+    repeating-linear-gradient(180deg, var(--blind) 0 1px, transparent 1px 28px);
+  background-size:
+    min(1180px, 100% - 44px) 9px,
+    1px 9px,
+    auto,
+    auto;
+  background-position:
+    center top,
+    calc(50% + min(590px, 50% - 22px)) top,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat;
+}
+
+/* hero: a vermilion field behind the facts column, an amber one low left, a horizon glow under a flood meter (a strip of grey ticks with one taller vermilion run: the signal above the flood), a near-black vertical fall; negative column ticks on top */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tick-neg) 0 1px, transparent 1px calc(100% / 12)),
+    linear-gradient(var(--tick-neg),var(--tick-neg)),
+    repeating-linear-gradient(90deg, var(--accent) 0 2px, transparent 2px 10px),
+    repeating-linear-gradient(90deg, oklch(0.9 0.012 195 / 0.28) 0 1px, transparent 1px 10px),
+    radial-gradient(54% 74% at 86% 26%, oklch(0.633 0.206 33.7 / 0.24), transparent 70%),
+    radial-gradient(42% 56% at 4% 104%, oklch(0.825 0.168 80.8 / 0.13), transparent 70%),
+    radial-gradient(90% 34% at 50% 108%, oklch(0.633 0.206 33.7 / 0.17), transparent 72%),
+    linear-gradient(180deg, oklch(0.215 0.018 195.9) 0, var(--deep) 68%);
+  background-size:
+    min(1180px, 100% - 44px) 9px,
+    1px 9px,
+    100px 26px,
+    min(1180px, 100% - 44px) 14px,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-position:
+    center top,
+    calc(50% + min(590px, 50% - 22px)) top,
+    calc(50% - min(590px, 50% - 22px) + 54%) calc(100% - 28px),
+    center calc(100% - 28px),
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+/* gravest band: its own stock. The darkest near-black, a vignette that darkens the edges, the twelve column guides running the full height in negative, no colour field */
+.sec-dark.sec-dark-2{
+  background-color:var(--deep-2);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tick-neg) 0 1px, transparent 1px calc(100% / 12)),
+    linear-gradient(var(--tick-neg),var(--tick-neg)),
+    radial-gradient(ellipse 130% 70% at 50% 0%, transparent 0, transparent 38%, oklch(0.085 0.01 195.9 / 0.72) 100%),
+    repeating-linear-gradient(90deg, var(--guide-neg) 0 1px, transparent 1px calc(100% / 12));
+  background-size:
+    min(1180px, 100% - 44px) 9px,
+    1px 9px,
+    100% 100%,
+    min(1180px, 100% - 44px) 100%;
+  background-position:
+    center top,
+    calc(50% + min(590px, 50% - 22px)) top,
+    0 0,
+    center top;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+footer{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(90deg, var(--accent-2), var(--accent)),
+    linear-gradient(180deg, transparent 0, oklch(0.105 0.011 195.9) 100%);
+  background-size:
+    100% 2px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat;
+}
+
+/* the flood plate inset: near-black, a vermilion field at its right edge, a lighter fall; negative ruling only (never under a table) */
+.flood{
+  background-image:
+    radial-gradient(52% 90% at 100% 0%, oklch(0.633 0.206 33.7 / 0.20), transparent 70%),
+    radial-gradient(40% 70% at 0% 100%, oklch(0.825 0.168 80.8 / 0.09), transparent 72%),
+    linear-gradient(180deg, oklch(0.215 0.018 195.9) 0, var(--deep) 72%);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+
+.table-scroll{background:var(--card)}   /* table cells are transparent; never paint a band behind data */
+
+@media print{
+  .sec-white,.sec-tint,.sec-dark,.sec-dark.sec-dark-2,footer{background-image:none}
+  .flood{background:#fff!important;color:#111!important;box-shadow:none!important;border:1px solid #bbb}
+  .flood *{color:#111!important}
+}
+@media (forced-colors:active){
+  /* background-image is dropped here too; the bands keep their system colours and the ticks simply disappear */
+  .sec-white,.sec-tint,.sec-dark,.sec-dark.sec-dark-2,.flood,footer{background-image:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with Cyabra, Inc. Official investor relations: <a href="https://invest.cyabra.com/" target="_blank" rel="noopener">invest.cyabra.com</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/logo.svg" alt="Cyabra" width="238" height="82"></span><span class="nav-tick">Nasdaq: CYAB</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#business">Business</a></li>
+        <li><a href="#numbers">Numbers</a></li>
+        <li><a href="#shares">Shares</a></li>
+        <li><a href="#record-2026">Record</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ 01 HERO (dark, wave field): identity first in the company's own sentence, then the four facts a reader needs, one of them the going-concern conclusion. A bundle of vermilion lines runs through a flood of grey ones: coordinated accounts among real ones. ============ -->
+<section id="hero" class="hero sec-dark" aria-labelledby="hero-h">
+  <div id="hero-motif" class="wave-motif" aria-hidden="true"><i class="motif-scan"></i></div>
+  <img class="hero-owl" src="img/owl-aura.png" alt="" width="1100" height="1099" aria-hidden="true">
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Cyabra, Inc. &middot; Nasdaq: CYAB</p>
+        <h1 id="hero-h" class="reveal" style="--d:.05s">Cyabra <b>uncovers disinformation</b> spread online</h1>
+        <p class="lead reveal" style="--d:.1s">Cyabra&rsquo;s platform collects public data from social media and news sites and applies its own algorithms to assess authenticity and sentiment, so customers can identify fake accounts, harmful narratives and AI-generated text and images. It sells software subscriptions, on-premises licences and managed reports. The company&rsquo;s filings also state substantial doubt about its ability to continue as a going concern. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a></p>
+        <div class="hero-cta reveal" style="--d:.15s">
+          <a class="btn btn-primary-light" href="#disclosures">Read the disclosures <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost-light" href="https://invest.cyabra.com/" target="_blank" rel="noopener">Official investor site <span class="arw" aria-hidden="true">&nearr;</span></a>
+          <button class="btn btn-ghost-light hero-pause" type="button" data-motif-toggle>Pause motion</button>
+        </div>
+      </div>
+      <div class="hero-facts reveal" style="--d:.18s">
+        <div class="hf">
+          <span class="hf-v">$3.3M</span>
+          <span class="hf-k">revenue in the first half of 2026, up 26% on $2.6M; the second quarter was $1.9M, up 39% <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></span>
+        </div>
+        <div class="hf">
+          <span class="hf-v">$8.1M</span>
+          <span class="hf-k">annualized recurring revenue at Jun&nbsp;30, 2026, up 29% from $6.3M a year earlier; ARR is a measure the company defines, not GAAP <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></span>
+        </div>
+        <div class="hf">
+          <span class="hf-v">$0.8M</span>
+          <span class="hf-k">cash at Jun&nbsp;30, 2026, against $13.9M of current liabilities, $3.5M of it deferred revenue <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, balance sheet</a></span>
+        </div>
+        <div class="hf hf-flag">
+          <span class="hf-v">Substantial doubt</span>
+          <span class="hf-k">about the ability to continue as a going concern, stated in the 10-Q for the quarter ended Jun&nbsp;30, 2026 and in the one for Mar&nbsp;31, 2026 <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, Note 1</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 THE BUSINESS (white stock, magazine spread): overview + platform + how it works + markets + the revenue model, in the company's filed words; the pull quote is the filing's own admission about revenue history. ============ -->
+<section id="business" class="sec-white mag-sec" aria-labelledby="biz-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">01</span><span class="folio-t">The business</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">In the filings&rsquo; own words</span></div>
+    <div class="mag">
+      <header class="s7 reveal">
+        <h2 id="biz-h"><span class="lt">Software that looks for</span> fake accounts <span class="lt">and</span> harmful narratives <span class="lt">online</span></h2>
+        <p class="lead">The 10-Q says Cyabra uses artificial intelligence and machine learning to monitor and analyze online conversations. It describes the targets of disinformation as corporations or public sector agencies, and says that in many cases they lack the tools or the expertise to find and counter it. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></p>
+        <ol class="steps">
+          <li><span class="step-n">1</span><span class="step-h">Collect</span><span class="step-t">The platform gathers publicly available data from social media and news sites.</span></li>
+          <li><span class="step-n">2</span><span class="step-h">Assess</span><span class="step-t">Its proprietary algorithms assess authenticity and sentiment.</span></li>
+          <li><span class="step-n">3</span><span class="step-h">Identify</span><span class="step-t">That lets it flag fake accounts, harmful narratives and GenAI text and images, and track the source and spread of information to measure its reach and impact.</span></li>
+        </ol>
+      </header>
+      <div class="s5 vis">
+        <figure class="fig-scan reveal" style="--d:.08s">
+          <img src="img/scanner.webp" alt="Illustration from the company: an isometric scanner ring passing an amber and vermilion beam through floating social media posts" width="900" height="560" loading="lazy">
+          <figcaption>The company&rsquo;s own illustration of its scanning approach, from cyabra.com. Illustrative; it shows no data.</figcaption>
+        </figure>
+        <figure class="fig-cluster reveal" style="--d:.12s">
+          <svg class="cluster" viewBox="0 0 560 190" role="img" aria-label="Schematic: many scattered grey account dots, and a tight group of ten linked vermilion dots joined to one amber source dot, standing for networks of fake accounts spreading a narrative among real ones." focusable="false"><circle class="cl-real" cx="254.7" cy="104.7" r="3"/><circle class="cl-real" cx="505.7" cy="89.4" r="3"/><circle class="cl-real" cx="284.2" cy="109.2" r="3"/><circle class="cl-real" cx="112.2" cy="96.9" r="3"/><circle class="cl-real" cx="64.1" cy="63.2" r="3"/><circle class="cl-real" cx="62.2" cy="145.2" r="3"/><circle class="cl-real" cx="382.9" cy="20.8" r="3"/><circle class="cl-real" cx="536.5" cy="170.3" r="3"/><circle class="cl-real" cx="97.8" cy="16.4" r="3"/><circle class="cl-real" cx="295.1" cy="23.6" r="3"/><circle class="cl-real" cx="115.2" cy="53.2" r="3"/><circle class="cl-real" cx="30.0" cy="89.2" r="3"/><circle class="cl-real" cx="248.4" cy="150.5" r="3"/><circle class="cl-real" cx="290.2" cy="117.7" r="3"/><circle class="cl-real" cx="279.9" cy="121.3" r="3"/><circle class="cl-real" cx="257.3" cy="59.1" r="3"/><circle class="cl-real" cx="544.8" cy="175.3" r="3"/><circle class="cl-real" cx="461.0" cy="128.7" r="3"/><circle class="cl-real" cx="181.7" cy="51.2" r="3"/><circle class="cl-real" cx="167.8" cy="25.4" r="3"/><circle class="cl-real" cx="464.4" cy="76.6" r="3"/><circle class="cl-real" cx="523.7" cy="151.3" r="3"/><circle class="cl-real" cx="14.3" cy="48.0" r="3"/><circle class="cl-real" cx="498.3" cy="90.1" r="3"/><circle class="cl-real" cx="535.6" cy="78.4" r="3"/><circle class="cl-real" cx="52.9" cy="116.0" r="3"/><circle class="cl-real" cx="60.4" cy="67.9" r="3"/><circle class="cl-real" cx="526.9" cy="136.8" r="3"/><circle class="cl-real" cx="76.8" cy="53.9" r="3"/><circle class="cl-real" cx="67.8" cy="23.7" r="3"/><circle class="cl-real" cx="311.5" cy="86.5" r="3"/><circle class="cl-real" cx="115.4" cy="132.6" r="3"/><circle class="cl-real" cx="83.7" cy="118.3" r="3"/><circle class="cl-real" cx="76.0" cy="82.2" r="3"/><circle class="cl-real" cx="127.2" cy="57.7" r="3"/><circle class="cl-real" cx="530.5" cy="144.2" r="3"/><circle class="cl-real" cx="175.8" cy="157.3" r="3"/><circle class="cl-real" cx="126.1" cy="77.9" r="3"/><circle class="cl-real" cx="468.5" cy="118.0" r="3"/><circle class="cl-real" cx="67.4" cy="174.3" r="3"/><circle class="cl-real" cx="127.4" cy="55.8" r="3"/><circle class="cl-real" cx="171.6" cy="25.9" r="3"/><circle class="cl-real" cx="61.9" cy="108.4" r="3"/><circle class="cl-real" cx="143.3" cy="111.4" r="3"/><circle class="cl-real" cx="211.7" cy="87.4" r="3"/><circle class="cl-real" cx="524.3" cy="92.4" r="3"/><circle class="cl-real" cx="319.7" cy="154.4" r="3"/><circle class="cl-real" cx="111.3" cy="39.0" r="3"/><circle class="cl-real" cx="497.3" cy="146.5" r="3"/><circle class="cl-real" cx="146.7" cy="44.7" r="3"/><circle class="cl-real" cx="407.4" cy="166.3" r="3"/><circle class="cl-real" cx="118.6" cy="167.9" r="3"/><line class="cl-edge motif-edge" x1="426.1" y1="70.4" x2="389.7" y2="139.5" style="--len:78"/><line class="cl-edge motif-edge" x1="426.1" y1="70.4" x2="341.8" y2="79.9" style="--len:85"/><line class="cl-edge motif-edge" x1="370.6" y1="105.4" x2="395.6" y2="136.5" style="--len:40"/><line class="cl-edge motif-edge" x1="370.6" y1="105.4" x2="420.4" y2="106.7" style="--len:50"/><line class="cl-edge motif-edge" x1="447.3" y1="107.3" x2="414.6" y2="132.6" style="--len:41"/><line class="cl-edge motif-edge" x1="395.6" y1="136.5" x2="363.8" y2="80.0" style="--len:65"/><line class="cl-edge motif-edge" x1="395.6" y1="136.5" x2="366.6" y2="77.8" style="--len:65"/><line class="cl-edge motif-edge" x1="389.7" y1="139.5" x2="341.8" y2="79.9" style="--len:76"/><line class="cl-edge motif-edge" x1="363.8" y1="80.0" x2="420.4" y2="106.7" style="--len:63"/><line class="cl-edge motif-edge" x1="420.4" y1="106.7" x2="366.6" y2="77.8" style="--len:61"/><line class="cl-edge motif-edge" x1="272.0" y1="102.0" x2="426.1" y2="70.4" style="--len:157"/><line class="cl-edge motif-edge" x1="272.0" y1="102.0" x2="370.6" y2="105.4" style="--len:99"/><line class="cl-edge motif-edge" x1="272.0" y1="102.0" x2="447.3" y2="107.3" style="--len:175"/><line class="cl-edge motif-edge" x1="272.0" y1="102.0" x2="395.6" y2="136.5" style="--len:128"/><line class="cl-edge motif-edge" x1="272.0" y1="102.0" x2="389.7" y2="139.5" style="--len:124"/><circle class="cl-fake" cx="426.1" cy="70.4" r="4.2"/><circle class="cl-fake" cx="370.6" cy="105.4" r="4.2"/><circle class="cl-fake" cx="447.3" cy="107.3" r="4.2"/><circle class="cl-fake" cx="395.6" cy="136.5" r="4.2"/><circle class="cl-fake" cx="389.7" cy="139.5" r="4.2"/><circle class="cl-fake" cx="363.8" cy="80.0" r="4.2"/><circle class="cl-fake" cx="414.6" cy="132.6" r="4.2"/><circle class="cl-fake" cx="420.4" cy="106.7" r="4.2"/><circle class="cl-fake" cx="341.8" cy="79.9" r="4.2"/><circle class="cl-fake" cx="366.6" cy="77.8" r="4.2"/><circle class="cl-src" cx="272.0" cy="102.0" r="6.5"/></svg>
+          <figcaption>Schematic of the pattern the 10-Q describes: networks of fake accounts spreading a narrative among real accounts, with its source and spread tracked. Illustrative; it shows no data.</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="s5 pull reveal">
+        <p>Legacy Cyabra began offering its application to customers in 2022 and to date has generated limited revenues.</p>
+        <cite class="pull-src">Quarterly report on Form 10-Q, MD&amp;A <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></cite>
+      </blockquote>
+      <div class="s7 earn reveal" style="--d:.06s">
+        <h3 class="mini-h">How it earns revenue</h3>
+        <dl class="earn-list">
+          <div><dt>SaaS subscription</dt><dd>Customers buy access to the company&rsquo;s tools through a website. Subscriptions are non-refundable and generally run from several months to three years; customers usually pay in advance, which is recorded as deferred revenue and recognized ratably over the term. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></dd></div>
+          <div><dt>On-premises licence</dt><dd>Where a customer, particularly a governmental agency, wants to host the application on its own servers, the company sells a licence with a term of two to three years. Revenue is recognized ratably. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></dd></div>
+          <div><dt>Managed services</dt><dd>For customers who want a limited-purpose or trial use, the company prepares a report or a package of reports in-house on agreed criteria. Revenue is recognized when the deliverable is transferred. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></dd></div>
+        </dl>
+      </div>
+
+      <div class="s7 reveal">
+        <figure class="fig-chart">
+          <img src="img/product-chart.webp" alt="A line and area chart titled Mentions Activity by Source, from the company's platform, showing sample mention counts from X, Facebook, TikTok, VK and Instagram over seven days in December" width="900" height="344" loading="lazy">
+          <figcaption>A sample view from the platform as shown on cyabra.com: mentions by source over seven days. It is an interface screenshot with sample data, not a reported result.</figcaption>
+        </figure>
+      </div>
+      <aside class="s5 team reveal" style="--d:.06s" aria-labelledby="team-h">
+        <h3 id="team-h" class="mini-h">Who runs it</h3>
+        <ul class="roster"><li><span class="mono-i" aria-hidden="true">DB</span><span class="rn">Dan Brahmy</span><span class="rr">Chief Executive Officer and director (Class III)</span></li><li><span class="mono-i" aria-hidden="true">YD</span><span class="rn">Yossef Daar</span><span class="rr">Chief Product Officer and director (Class III)</span></li><li><span class="mono-i" aria-hidden="true">IS</span><span class="rn">Ido Shraga</span><span class="rr">Chief Technology Officer</span></li><li><span class="mono-i" aria-hidden="true">EH</span><span class="rn">Emmanuel Heymann</span><span class="rr">Chief Revenue Officer</span></li><li><span class="mono-i" aria-hidden="true">YS</span><span class="rn">Yael Sandler</span><span class="rr">Chief Financial Officer</span></li><li><span class="mono-i" aria-hidden="true">MP</span><span class="rn">Michael Pompeo</span><span class="rr">Director, Class I</span></li><li><span class="mono-i" aria-hidden="true">JF</span><span class="rn">James Flanagan</span><span class="rr">Director, Class I, audit committee chair</span></li><li><span class="mono-i" aria-hidden="true">MM</span><span class="rn">Michael Madon</span><span class="rr">Director, Class II, nominating and governance chair</span></li><li><span class="mono-i" aria-hidden="true">SV</span><span class="rn">Sonny Vu</span><span class="rr">Director, Class II, compensation committee chair</span></li><li><span class="mono-i" aria-hidden="true">JS</span><span class="rn">Josette Sheeran</span><span class="rr">Director, Class III</span></li></ul>
+        <p class="team-note">Officers and directors as listed on the closing date, Mar&nbsp;27, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 5.02</a></p>
+      </aside>
+    </div>
+  </div>
+</section>
+<!-- ============ 03 THE NUMBERS (tint stock): revenue to scale, the growth and margin ledger, the statements, the balance sheet against cash, and the company-defined measures with what is inside them. ============ -->
+<section id="numbers" class="sec-tint mag-sec" aria-labelledby="num-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">02</span><span class="folio-t">The numbers</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">US dollars, as filed</span></div>
+    <div class="mag">
+      <header class="s12 reveal">
+        <h2 id="num-h"><span class="lt">Revenue, losses and cash,</span> as filed</h2>
+        <p class="lead">Cyabra, Inc. is the former shell company Trailblazer Holdings. Its statements are those of Legacy Cyabra, the accounting acquirer: 2025 and 2024 come from the audited statements in the 8-K of Mar&nbsp;31, 2026, and 2026 from the two 10-Qs. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 9.01(a)</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 2.01</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q, May&nbsp;15, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q, Aug&nbsp;13, 2026</a> The auditor&rsquo;s report on the 2025 statements contains a going-concern paragraph. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 9.01(a)</a> The 10-K filed Mar&nbsp;26, 2026 is the shell company&rsquo;s own and carries none of this. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026034218/ea0282729-10k_trailblazer.htm" target="_blank" rel="noopener">10-K (shell), Item 8</a></p>
+      </header>
+
+      <div class="s7 plate reveal">
+        <h3 class="mini-h">Revenue, drawn to scale</h3>
+        <div class="rv"><div class="rv-g"><p class="rv-gh">Years</p><div class="rv-row"><span class="rv-l">FY2024</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:46.17%"></span></span><span class="rv-v">4,155</span></div><div class="rv-row"><span class="rv-l">FY2025</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:63.41%"></span></span><span class="rv-v">5,707</span></div></div><div class="rv-g"><p class="rv-gh">Half-years</p><div class="rv-row"><span class="rv-l">H1 2025</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:28.79%"></span></span><span class="rv-v">2,591</span></div><div class="rv-row"><span class="rv-l">H1 2026</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:36.31%"></span></span><span class="rv-v">3,268</span></div></div><div class="rv-g"><p class="rv-gh">Quarters</p><div class="rv-row"><span class="rv-l">Q1 2025</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:14.00%"></span></span><span class="rv-v">1,260</span></div><div class="rv-row"><span class="rv-l">Q2 2025</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:14.79%"></span></span><span class="rv-v">1,331</span></div><div class="rv-row"><span class="rv-l">Q1 2026</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:15.72%"></span></span><span class="rv-v">1,415</span></div><div class="rv-row"><span class="rv-l">Q2 2026</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:20.59%"></span></span><span class="rv-v">1,853</span></div></div><div class="rv-g"><p class="rv-gh">Annualized recurring revenue, company-defined, not GAAP</p><div class="rv-row"><span class="rv-l">Dec 31, 2024</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:67.78%"></span></span><span class="rv-v">6,100</span></div><div class="rv-row"><span class="rv-l">Jun 30, 2025</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:70.00%"></span></span><span class="rv-v">6,300</span></div><div class="rv-row"><span class="rv-l">Dec 31, 2025</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:67.78%"></span></span><span class="rv-v">6,100</span></div><div class="rv-row"><span class="rv-l">Jun 30, 2026</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:90.00%"></span></span><span class="rv-v">8,100</span></div></div><div class="rv-axis" aria-hidden="true"><span class="rv-axl"></span><span class="rv-axt"><span style="--x:0.00%">$0</span><span style="--x:33.33%">$3M</span><span style="--x:66.67%">$6M</span><span style="--x:100.00%">$9M</span></span><span class="rv-axv"></span></div><p class="plate-cap">USD thousands, as filed. Revenue bars are ink, ARR bars amber; one scale for all. ARR for Jun&nbsp;30, 2025 and the other dates come from the 10-Q and 8-K MD&amp;A (company-defined measure).</p></div>
+      </div>
+      <div class="s5 glance reveal" style="--d:.08s">
+        <h3 class="mini-h">Growth and margin</h3>
+        <div class="table-scroll"><table class="fin glance cmp"><caption>Calculated here from the filed figures</caption><thead><tr><th scope="col">Measure</th><th scope="col" class="num">Result</th></tr></thead><tbody><tr><th scope="row">Revenue, FY2025 against FY2024</th><td class="num" data-label="Result">+37%</td></tr><tr><th scope="row">Revenue, H1 2026 against H1 2025</th><td class="num" data-label="Result">+26%</td></tr><tr><th scope="row">Revenue, Q1 2026 against Q1 2025</th><td class="num" data-label="Result">+12%</td></tr><tr><th scope="row">Revenue, Q2 2026 against Q2 2025</th><td class="num" data-label="Result">+39%</td></tr><tr><th scope="row">ARR, Jun 30, 2026 against Jun 30, 2025</th><td class="num" data-label="Result">+29%</td></tr><tr><th scope="row">Gross margin, FY2024</th><td class="num" data-label="Result">81%</td></tr><tr><th scope="row">Gross margin, FY2025</th><td class="num" data-label="Result">85%</td></tr><tr><th scope="row">Gross margin, H1 2026</th><td class="num" data-label="Result">85%</td></tr><tr><th scope="row">Gross margin, Q2 2026</th><td class="num" data-label="Result">84%</td></tr></tbody></table></div>
+      </div>
+
+      <div class="s12 reveal">
+        <h3 class="mini-h">Statements of operations, USD thousands as filed</h3>
+        <div class="table-scroll"><table class="fin stm cmp"><caption class="cap-sr">Statements of operations, USD thousands as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">FY2025<small>year to Dec&nbsp;31, 2025, audited</small></th><th scope="col" class="num">FY2024<small>year to Dec&nbsp;31, 2024, audited</small></th><th scope="col" class="num">H1 2026<small>six months to Jun&nbsp;30, unaudited</small></th><th scope="col" class="num">H1 2025<small>six months to Jun&nbsp;30, unaudited</small></th></tr></thead><tbody><tr class=""><th scope="row">Revenue</th><td class="num" data-label="FY2025">5,707</td><td class="num" data-label="FY2024">4,155</td><td class="num" data-label="H1 2026">3,268</td><td class="num" data-label="H1 2025">2,591</td></tr><tr class=""><th scope="row">Cost of revenues</th><td class="num" data-label="FY2025">866</td><td class="num" data-label="FY2024">782</td><td class="num" data-label="H1 2026">496</td><td class="num" data-label="H1 2025">409</td></tr><tr class="tot"><th scope="row">Gross profit</th><td class="num" data-label="FY2025">4,841</td><td class="num" data-label="FY2024">3,373</td><td class="num" data-label="H1 2026">2,772</td><td class="num" data-label="H1 2025">2,182</td></tr><tr class=""><th scope="row">Research and development</th><td class="num" data-label="FY2025">6,894</td><td class="num" data-label="FY2024">4,653</td><td class="num" data-label="H1 2026">7,568</td><td class="num" data-label="H1 2025">3,691</td></tr><tr class=""><th scope="row">Sales and marketing</th><td class="num" data-label="FY2025">5,696</td><td class="num" data-label="FY2024">3,316</td><td class="num" data-label="H1 2026">2,559</td><td class="num" data-label="H1 2025">3,192</td></tr><tr class=""><th scope="row">General and administrative</th><td class="num" data-label="FY2025">4,221</td><td class="num" data-label="FY2024">4,602</td><td class="num" data-label="H1 2026">7,589</td><td class="num" data-label="H1 2025">2,756</td></tr><tr class="tot"><th scope="row">Operating loss</th><td class="num" data-label="FY2025">(11,970)</td><td class="num" data-label="FY2024">(9,198)</td><td class="num" data-label="H1 2026">(14,944)</td><td class="num" data-label="H1 2025">(7,457)</td></tr><tr class=""><th scope="row">Financing income (expenses), net</th><td class="num" data-label="FY2025">(828)</td><td class="num" data-label="FY2024">(6,398)</td><td class="num" data-label="H1 2026">799</td><td class="num" data-label="H1 2025">1,716</td></tr><tr class=""><th scope="row">Income taxes</th><td class="num" data-label="FY2025">(21)</td><td class="num" data-label="FY2024">(14)</td><td class="num" data-label="H1 2026">(64)</td><td class="num" data-label="H1 2025">(19)</td></tr><tr class="tot"><th scope="row">Net loss</th><td class="num" data-label="FY2025">(12,819)</td><td class="num" data-label="FY2024">(15,610)</td><td class="num" data-label="H1 2026">(14,209)</td><td class="num" data-label="H1 2025">(5,760)</td></tr></tbody></table></div>
+        <p class="tbl-note">Basic net loss per share was $1.68 for the first half of 2026 on 8,458,222 weighted-average shares, and $2.53 for the first half of 2025 on 2,396,328. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 5</a></p>
+      </div>
+      <div class="s12 reveal">
+        <h3 class="mini-h">By quarter, USD thousands as filed</h3>
+        <div class="table-scroll"><table class="fin stm cmp"><caption class="cap-sr">Quarterly statements of operations, USD thousands as filed (Q1 from the 10-Q filed May&nbsp;15, Q2 from the 10-Q filed Aug&nbsp;13)</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">Q1 2026<small>three months to Mar&nbsp;31</small></th><th scope="col" class="num">Q1 2025<small>three months to Mar&nbsp;31</small></th><th scope="col" class="num">Q2 2026<small>three months to Jun&nbsp;30</small></th><th scope="col" class="num">Q2 2025<small>three months to Jun&nbsp;30</small></th></tr></thead><tbody><tr class=""><th scope="row">Revenue</th><td class="num" data-label="Q1 2026">1,415</td><td class="num" data-label="Q1 2025">1,260</td><td class="num" data-label="Q2 2026">1,853</td><td class="num" data-label="Q2 2025">1,331</td></tr><tr class=""><th scope="row">Cost of revenues</th><td class="num" data-label="Q1 2026">192</td><td class="num" data-label="Q1 2025">196</td><td class="num" data-label="Q2 2026">304</td><td class="num" data-label="Q2 2025">213</td></tr><tr class="tot"><th scope="row">Gross profit</th><td class="num" data-label="Q1 2026">1,223</td><td class="num" data-label="Q1 2025">1,064</td><td class="num" data-label="Q2 2026">1,549</td><td class="num" data-label="Q2 2025">1,118</td></tr><tr class=""><th scope="row">Research and development</th><td class="num" data-label="Q1 2026">5,508</td><td class="num" data-label="Q1 2025">1,851</td><td class="num" data-label="Q2 2026">2,060</td><td class="num" data-label="Q2 2025">1,840</td></tr><tr class=""><th scope="row">Sales and marketing</th><td class="num" data-label="Q1 2026">1,255</td><td class="num" data-label="Q1 2025">1,736</td><td class="num" data-label="Q2 2026">1,304</td><td class="num" data-label="Q2 2025">1,456</td></tr><tr class=""><th scope="row">General and administrative</th><td class="num" data-label="Q1 2026">6,284</td><td class="num" data-label="Q1 2025">1,515</td><td class="num" data-label="Q2 2026">1,305</td><td class="num" data-label="Q2 2025">1,241</td></tr><tr class="tot"><th scope="row">Operating loss</th><td class="num" data-label="Q1 2026">(11,824)</td><td class="num" data-label="Q1 2025">(4,038)</td><td class="num" data-label="Q2 2026">(3,120)</td><td class="num" data-label="Q2 2025">(3,419)</td></tr><tr class=""><th scope="row">Financing income (expenses), net</th><td class="num" data-label="Q1 2026">1,054</td><td class="num" data-label="Q1 2025">724</td><td class="num" data-label="Q2 2026">(255)</td><td class="num" data-label="Q2 2025">992</td></tr><tr class=""><th scope="row">Income taxes</th><td class="num" data-label="Q1 2026">0</td><td class="num" data-label="Q1 2025">0</td><td class="num" data-label="Q2 2026">(64)</td><td class="num" data-label="Q2 2025">(19)</td></tr><tr class="tot"><th scope="row">Net loss</th><td class="num" data-label="Q1 2026">(10,770)</td><td class="num" data-label="Q1 2025">(3,314)</td><td class="num" data-label="Q2 2026">(3,439)</td><td class="num" data-label="Q2 2025">(2,446)</td></tr><tr class=""><th scope="row">Net loss per share, basic ($)</th><td class="num" data-label="Q1 2026">(3.10)</td><td class="num" data-label="Q1 2025">(1.47)</td><td class="num" data-label="Q2 2026">(0.26)</td><td class="num" data-label="Q2 2025">(1.07)</td></tr></tbody></table></div>
+        <p class="tbl-note">Weighted-average shares, basic: 3,471,031 for Q1 2026 and 2,356,837 for Q1 2025; 13,390,609 for Q2 2026 and 2,435,385 for Q2 2025. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, Note 5</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 5</a></p>
+      </div>
+
+      <div class="s6 reveal">
+        <h3 class="mini-h">Balance sheet, selected lines, USD thousands as filed</h3>
+        <div class="table-scroll"><table class="fin bal stm cmp"><caption class="cap-sr">Balance sheet, selected lines, USD thousands as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">Jun&nbsp;30, 2026<small>unaudited</small></th><th scope="col" class="num">Dec&nbsp;31, 2025<small>audited</small></th></tr></thead><tbody><tr class=""><th scope="row">Cash and cash equivalents</th><td class="num" data-label="Jun&nbsp;30, 2026">794</td><td class="num" data-label="Dec&nbsp;31, 2025">294</td></tr><tr class=""><th scope="row">Accounts receivable</th><td class="num" data-label="Jun&nbsp;30, 2026">568</td><td class="num" data-label="Dec&nbsp;31, 2025">269</td></tr><tr class="tot"><th scope="row">Total current assets</th><td class="num" data-label="Jun&nbsp;30, 2026">1,979</td><td class="num" data-label="Dec&nbsp;31, 2025">737</td></tr><tr class="tot"><th scope="row">Total assets</th><td class="num" data-label="Jun&nbsp;30, 2026">2,632</td><td class="num" data-label="Dec&nbsp;31, 2025">1,458</td></tr><tr class=""><th scope="row">Trade payables</th><td class="num" data-label="Jun&nbsp;30, 2026">2,015</td><td class="num" data-label="Dec&nbsp;31, 2025">1,775</td></tr><tr class=""><th scope="row">Short-term loans</th><td class="num" data-label="Jun&nbsp;30, 2026">2,003</td><td class="num" data-label="Dec&nbsp;31, 2025">5,768</td></tr><tr class=""><th scope="row">Convertible notes</th><td class="num" data-label="Jun&nbsp;30, 2026">0</td><td class="num" data-label="Dec&nbsp;31, 2025">12,869</td></tr><tr class=""><th scope="row">Deferred revenues, current</th><td class="num" data-label="Jun&nbsp;30, 2026">3,452</td><td class="num" data-label="Dec&nbsp;31, 2025">2,816</td></tr><tr class=""><th scope="row">Employees and related</th><td class="num" data-label="Jun&nbsp;30, 2026">2,937</td><td class="num" data-label="Dec&nbsp;31, 2025">1,298</td></tr><tr class="tot"><th scope="row">Total current liabilities</th><td class="num" data-label="Jun&nbsp;30, 2026">13,850</td><td class="num" data-label="Dec&nbsp;31, 2025">25,476</td></tr><tr class=""><th scope="row">Deferred revenues, long-term</th><td class="num" data-label="Jun&nbsp;30, 2026">683</td><td class="num" data-label="Dec&nbsp;31, 2025">115</td></tr><tr class="tot"><th scope="row">Total liabilities</th><td class="num" data-label="Jun&nbsp;30, 2026">14,628</td><td class="num" data-label="Dec&nbsp;31, 2025">26,229</td></tr><tr class=""><th scope="row">Redeemable convertible preferred stock</th><td class="num" data-label="Jun&nbsp;30, 2026">0</td><td class="num" data-label="Dec&nbsp;31, 2025">15,268</td></tr><tr class=""><th scope="row">Accumulated deficit</th><td class="num" data-label="Jun&nbsp;30, 2026">(61,582)</td><td class="num" data-label="Dec&nbsp;31, 2025">(47,373)</td></tr><tr class="tot"><th scope="row">Capital deficiency</th><td class="num" data-label="Jun&nbsp;30, 2026">(11,996)</td><td class="num" data-label="Dec&nbsp;31, 2025">(40,039)</td></tr></tbody></table></div>
+        <p class="tbl-note">Remaining performance obligations, contracted revenue not yet recognized, were $4.9M at Jun&nbsp;30, 2026: $4.2M expected within a year and $0.7M beyond. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 7</a></p>
+      </div>
+      <div class="s6 stack">
+        <div class="plate reveal" style="--d:.08s">
+          <h3 class="mini-h">Cash against current liabilities</h3>
+          <div class="rv rv-cash"><div class="rv-g"><p class="rv-gh">Dec&nbsp;31, 2025</p><div class="rv-row"><span class="rv-l">Cash</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:1.13%"></span></span><span class="rv-v">294</span></div><div class="rv-row"><span class="rv-l">Current liabilities</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:97.98%"></span></span><span class="rv-v">25,476</span></div></div><div class="rv-g"><p class="rv-gh">Mar&nbsp;31, 2026</p><div class="rv-row"><span class="rv-l">Cash</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:12.01%"></span></span><span class="rv-v">3,122</span></div><div class="rv-row"><span class="rv-l">Current liabilities</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:62.94%"></span></span><span class="rv-v">16,365</span></div></div><div class="rv-g"><p class="rv-gh">Jun&nbsp;30, 2026</p><div class="rv-row"><span class="rv-l">Cash</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:3.05%"></span></span><span class="rv-v">794</span></div><div class="rv-row"><span class="rv-l">Current liabilities</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:53.27%"></span></span><span class="rv-v">13,850</span></div></div><div class="rv-axis" aria-hidden="true"><span class="rv-axl"></span><span class="rv-axt"><span style="--x:0.00%">$0</span><span style="--x:38.46%">$10M</span><span style="--x:76.92%">$20M</span></span><span class="rv-axv"></span></div><p class="plate-cap">USD thousands, as filed (balance sheets in the 10-Qs of May&nbsp;15 and Aug&nbsp;13, 2026 and the Dec&nbsp;31, 2025 column of the latter).</p></div>
+          <p class="tbl-note">Between Dec&nbsp;31, 2025 and Jun&nbsp;30, 2026 the convertible notes ($12.9M) and the redeemable convertible preferred stock ($15.3M) shown at year-end are no longer on the balance sheet. The 10-Q says the 2024 convertible notes were converted to equity on the merger, and its statement of changes in equity shows the redeemable preferred shares converted; neither is shown as repaid in cash. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 3</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, balance sheet</a></p>
+        </div>
+        <div class="reveal">
+          <h3 class="mini-h">Cash flow, six months, USD thousands as filed</h3>
+          <div class="table-scroll"><table class="fin cf stm cmp"><caption class="cap-sr">Cash flow, USD thousands as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">H1 2026<small>six months to Jun&nbsp;30, unaudited</small></th><th scope="col" class="num">H1 2025<small>six months to Jun&nbsp;30, unaudited</small></th></tr></thead><tbody><tr class=""><th scope="row">Net cash used in operating activities</th><td class="num" data-label="H1 2026">(4,995)</td><td class="num" data-label="H1 2025">(3,833)</td></tr><tr class=""><th scope="row">Net cash used in investing activities</th><td class="num" data-label="H1 2026">(28)</td><td class="num" data-label="H1 2025">(29)</td></tr><tr class=""><th scope="row">Net cash provided by financing activities</th><td class="num" data-label="H1 2026">5,564</td><td class="num" data-label="H1 2025">3,131</td></tr><tr class="tot"><th scope="row">Net change in cash</th><td class="num" data-label="H1 2026">541</td><td class="num" data-label="H1 2025">(731)</td></tr></tbody></table></div>
+          <p class="tbl-note">The cash-flow statement carries the March PIPE as one $8.0M line; the 8-K of Mar&nbsp;31 describes it as $5.5M in cash plus the extinguishment of $2.5M of bridge notes. In the same six months loans received were $2.7M, loans repaid $6.4M, and cash received from the merger $1.3M. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, cash flow</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></p>
+        </div>
+      </div>
+
+      <div class="s7 reveal">
+        <h3 class="mini-h">Adjusted EBITDA, as the company defines it, USD thousands</h3>
+        <div class="table-scroll"><table class="fin eb stm cmp"><caption class="cap-sr">Company-defined EBITDA bridge, USD thousands as filed</caption><thead><tr><th scope="col">&nbsp;</th><th scope="col" class="num">H1 2026<small>six months</small></th><th scope="col" class="num">H1 2025<small>six months</small></th><th scope="col" class="num">Q2 2026<small>three months</small></th><th scope="col" class="num">Q2 2025<small>three months</small></th></tr></thead><tbody><tr class=""><th scope="row">Net loss</th><td class="num" data-label="H1 2026">(14,209)</td><td class="num" data-label="H1 2025">(5,760)</td><td class="num" data-label="Q2 2026">(3,439)</td><td class="num" data-label="Q2 2025">(2,446)</td></tr><tr class=""><th scope="row">Depreciation and amortization</th><td class="num" data-label="H1 2026">29</td><td class="num" data-label="H1 2025">29</td><td class="num" data-label="Q2 2026">15</td><td class="num" data-label="Q2 2025">15</td></tr><tr class=""><th scope="row">Income taxes</th><td class="num" data-label="H1 2026">64</td><td class="num" data-label="H1 2025">19</td><td class="num" data-label="Q2 2026">64</td><td class="num" data-label="Q2 2025">19</td></tr><tr class=""><th scope="row">Finance income, net</th><td class="num" data-label="H1 2026">(799)</td><td class="num" data-label="H1 2025">(1,716)</td><td class="num" data-label="Q2 2026">255</td><td class="num" data-label="Q2 2025">(992)</td></tr><tr class="tot"><th scope="row">EBITDA</th><td class="num" data-label="H1 2026">(14,915)</td><td class="num" data-label="H1 2025">(7,428)</td><td class="num" data-label="Q2 2026">(3,105)</td><td class="num" data-label="Q2 2025">(3,404)</td></tr><tr class=""><th scope="row">Share-based compensation</th><td class="num" data-label="H1 2026">5,440</td><td class="num" data-label="H1 2025">2,255</td><td class="num" data-label="Q2 2026">223</td><td class="num" data-label="Q2 2025">866</td></tr><tr class=""><th scope="row">Non-recurring business-combination expenses</th><td class="num" data-label="H1 2026">3,438</td><td class="num" data-label="H1 2025">0</td><td class="num" data-label="Q2 2026">0</td><td class="num" data-label="Q2 2025">0</td></tr><tr class="tot"><th scope="row">Adjusted EBITDA</th><td class="num" data-label="H1 2026">(6,037)</td><td class="num" data-label="H1 2025">(5,173)</td><td class="num" data-label="Q2 2026">(2,882)</td><td class="num" data-label="Q2 2025">(2,538)</td></tr></tbody></table></div>
+        <p class="tbl-note">EBITDA and adjusted EBITDA are not GAAP measures. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></p>
+      </div>
+      <div class="s5 inside reveal" style="--d:.08s">
+        <h3 class="mini-h">What is inside the first-half number</h3>
+        <p>The first-half 2026 net loss of $14.2M includes $5.4M of share-based compensation and $3.4M of expenses the company calls non-recurring and ties to the business combination. Adjusted EBITDA of $6.0M (a loss) adds both back.</p>
+        <p>Cash used in operating activities over the same six months was $5.0M. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, cash flow</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 04 MERGER AND SHARES (white stock): how a shell became a listed company, then the share count against the securities issued since, drawn to scale (the flood field). ============ -->
+<section id="shares" class="sec-white mag-sec" aria-labelledby="sh-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">03</span><span class="folio-t">Merger and shares</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">Mar&nbsp;2026 to Sep&nbsp;2026</span></div>
+    <div class="mag">
+      <header class="s5 sticky-h reveal">
+        <h2 id="sh-h"><span class="lt">A listed company since March;</span> far more shares issuable since July</h2>
+        <p class="lead">Cyabra went public by merging with a blank-check company, then raised money in July with an offering of shares and warrants. The shares, pre-funded warrants and warrants issued in July and September cover about eight times the 17.6 million shares outstanding on the 10-Q cover, counting them as the plate below does (calculated).</p>
+        <div class="plate mg-plate">
+          <h3 class="mini-h">Stated consideration against cash</h3>
+          <div class="rv rv-merger"><div class="rv-row"><span class="rv-l">Aggregate merger consideration (stated amount, settled in shares)</span><span class="rv-track"><span class="rv-bar rv-ink motif-grow" style="--w:100%"></span></span><span class="rv-v">$106.0M</span></div><div class="rv-row"><span class="rv-l">Cash received from the merger</span><span class="rv-track"><span class="rv-bar rv-amb motif-grow" style="--w:1.26%"></span></span><span class="rv-v">$1.3M</span></div><p class="plate-cap">Drawn to scale. The $106M is the aggregate merger consideration stated in the merger agreement, a formula amount settled in shares: not a market value and not money raised. The cash is the cash-flow statement&rsquo;s line for cash received from the merger. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, cash flow</a></p></div>
+        </div>
+      </header>
+      <ol class="s7 mech reveal" style="--d:.08s">
+        <li><span class="mech-d">Jul&nbsp;22, 2024 to Mar&nbsp;27, 2026</span><span class="mech-t"><b>The combination.</b> The merger agreement with Trailblazer Merger Corporation I was signed Jul&nbsp;22, 2024 and amended Nov&nbsp;11, 2024 and Nov&nbsp;6, 2025. It closed in two steps, on Mar&nbsp;26 and Mar&nbsp;27, 2026. Holdings was renamed Cyabra, Inc. and its stock began trading on the Nasdaq Global Market as CYAB. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></span></li>
+        <li><span class="mech-d">Mar&nbsp;27, 2026</span><span class="mech-t"><b>What the merger paid.</b> The aggregate merger consideration was $106 million, settled in common stock issued to Cyabra&rsquo;s holders; the 10-Q says it was first $70 million and was raised to $106 million by an amendment. It is a stated amount, not cash raised: the cash-flow statement shows $1.3M received from the merger. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, cash flow</a></span></li>
+        <li><span class="mech-d">Mar&nbsp;27, 2026</span><span class="mech-t"><b>The private placement.</b> 8,000 shares of Series B preferred stock and warrants over 400,000 common shares at $11.50, for $5.5M in cash and the extinguishment of the 2025 bridge notes and their interest. Of the proceeds, $2.8M paid down promissory notes. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></span></li>
+        <li><span class="mech-d">Jul&nbsp;9 to 10, 2026</span><span class="mech-t"><b>The July offering.</b> 1,175,090 shares at $0.435, pre-funded warrants over 12,643,680 shares at $0.4349, Series A warrants and Series B warrants over 13,818,770 shares each. Gross proceeds were about $6M, about $5.3M after the placement agent&rsquo;s fees and expenses. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Item 1.01</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 9</a></span></li>
+        <li><span class="mech-d">Jul&nbsp;9, 2026</span><span class="mech-t"><b>Two agreements with preferred holders.</b> An exchange agreement with Alpha Capital Anstalt for its Series C preferred stock, valued at $10.66M, and a conversion agreement under which all outstanding Series A and Series B preferred stock would convert into 35,648,276 common shares or equivalents, at a conversion price reduced to $0.435, as the company&rsquo;s press release puts it. Both needed stockholder approval. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Ex. 99.1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 9</a></span></li>
+        <li><span class="mech-d">Sep&nbsp;2 to 9, 2026</span><span class="mech-t"><b>Approval and closing.</b> Stockholders approved the issuances on Sep&nbsp;2. The exchange closed on Sep&nbsp;9 with 24,505,747 pre-funded warrants and 24,505,747 Series A and the same number of Series B warrants for Alpha; the conversion closed with 9,756,323 common shares and a pre-funded warrant over 25,006,895 shares. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.07</a></span></li>
+      </ol>
+
+      <div class="s12 flood reveal">
+        <h3 class="mini-h">Shares outstanding against the securities issued since July</h3>
+        <div class="fl"><div class="fl-row fl-ink"><span class="fl-l"><b>Shares outstanding</b><small>Aug&nbsp;12, 2026, 10-Q cover</small></span><span class="fl-bar motif-grow" style="--n:17.5971"></span><span class="fl-v">17.6M</span></div><div class="fl-row fl-ink2"><span class="fl-l"><b>Common shares issued Sep&nbsp;9</b><small>on conversion of preferred stock</small></span><span class="fl-bar motif-grow" style="--n:9.7563"></span><span class="fl-v">9.8M</span></div><div class="fl-row fl-amb"><span class="fl-l"><b>Pre-funded warrants</b><small>July and September, calculated sum</small></span><span class="fl-bar motif-grow" style="--n:62.1563"></span><span class="fl-v">62.2M</span></div><div class="fl-row fl-verm"><span class="fl-l"><b>Series A warrants, $0.50</b><small>July and September, calculated sum</small></span><span class="fl-bar motif-grow" style="--n:38.3245"></span><span class="fl-v">38.3M</span></div><div class="fl-row fl-verm2"><span class="fl-l"><b>Series B warrants, $0.45</b><small>July and September, calculated sum</small></span><span class="fl-bar motif-grow" style="--n:38.3245"></span><span class="fl-v">38.3M</span></div><div class="fl-row fl-ring"><span class="fl-l"><b>2026 plan share reserve</b><small>after the Sep&nbsp;2 vote, a ceiling not an issuance</small></span><span class="fl-bar motif-grow" style="--n:22.0721"></span><span class="fl-v">22.1M</span></div><p class="plate-cap">One block is one million shares, drawn to scale. Calculated from the share counts the filings state; not a fully diluted count. Some pre-funded warrants may already have been exercised and counted in shares outstanding, the warrants are exercisable only at the prices and terms stated, and the number of shares outstanding after Sep&nbsp;9 is not stated in the filings reviewed. The July offering closed before the cover date, so its 1.2 million shares are presumably in that count. Exercises and conversions are subject to beneficial ownership limits: the proxy statement says no recipient may acquire more than 19.99% of the outstanding common stock, and Alpha&rsquo;s warrants carry a beneficial ownership limitation (its ownership table shows Alpha at 9.99%). <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026087367/ea0301432-def14a_cyabra.htm" target="_blank" rel="noopener">DEF 14A, Aug&nbsp;11, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q cover</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K, Sep&nbsp;10, 2026</a></p></div>
+      </div>
+
+      <div class="s12 reveal">
+        <h3 class="mini-h">Instruments, as filed</h3>
+        <div class="table-scroll"><table class="fin ins"><caption class="cap-sr">Securities issued or reserved, as filed</caption><thead><tr><th scope="col">Item</th><th scope="col" class="num">Number</th><th scope="col">Terms</th></tr></thead><tbody><tr><th scope="row">Shares outstanding</th><td class="num" data-label="Number">17,597,071</td><td class="terms" data-label="Terms">As stated on the 10-Q cover, dated Aug&nbsp;12, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, cover</a></td></tr><tr><th scope="row">July offering, shares</th><td class="num" data-label="Number">1,175,090</td><td class="terms" data-label="Terms">$0.435 each; 275,890 sold to directors and officers on the same terms, about $120K. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 9</a></td></tr><tr><th scope="row">July offering, pre-funded warrants</th><td class="num" data-label="Number">12,643,680</td><td class="terms" data-label="Terms">$0.4349 each; exercisable immediately until exercised in full. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Item 1.01</a></td></tr><tr><th scope="row">July offering, Series A warrants</th><td class="num" data-label="Number">13,818,770</td><td class="terms" data-label="Terms">Exercise price $0.50; exercisable from stockholder approval; expire five years from the initial exercise date. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Item 1.01</a></td></tr><tr><th scope="row">July offering, Series B warrants</th><td class="num" data-label="Number">13,818,770</td><td class="terms" data-label="Terms">Exercise price $0.45; exercisable from stockholder approval; expire twelve months from the initial exercise date. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Item 1.01</a></td></tr><tr><th scope="row">Sep&nbsp;9 exchange, pre-funded warrants</th><td class="num" data-label="Number">24,505,747</td><td class="terms" data-label="Terms">Issued to Alpha in exchange for Series C preferred stock valued at $10,660,000, at $0.4349; exercise price $0.0001. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></td></tr><tr><th scope="row">Sep&nbsp;9 exchange, Series A and Series B warrants</th><td class="num" data-label="Number">24,505,747 of each</td><td class="terms" data-label="Terms">Exercise prices $0.50 and $0.45; five years and twelve months from the initial exercise date. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></td></tr><tr><th scope="row">Sep&nbsp;9 conversion, common shares</th><td class="num" data-label="Number">9,756,323</td><td class="terms" data-label="Terms">Issued, with a pre-funded warrant for up to 25,006,895 shares, on conversion of the Series A and Series B preferred stock. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></td></tr><tr><th scope="row">March private placement, warrants</th><td class="num" data-label="Number">400,000</td><td class="terms" data-label="Terms">Exercise price $11.50, subject to adjustment to a floor of $1.46; one-year term from Mar&nbsp;27, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></td></tr><tr><th scope="row">2026 plan, shares reserved</th><td class="num" data-label="Number">22,072,125</td><td class="terms" data-label="Terms">Raised from 2,072,125 on Sep&nbsp;2, 2026, then 15% of fully diluted capitalization each Jan&nbsp;1. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.02</a></td></tr></tbody></table></div>
+      </div>
+      <div class="s6 reveal">
+        <h3 class="mini-h">The Sep&nbsp;2 special meeting, votes</h3>
+        <div class="table-scroll"><table class="fin vt cmp"><caption class="cap-sr">Votes at the Sep&nbsp;2, 2026 special meeting</caption><thead><tr><th scope="col">Proposal</th><th scope="col" class="num">For</th><th scope="col" class="num">Against</th><th scope="col" class="num">Abstain</th></tr></thead><tbody><tr><th scope="row">Share issuances (Nasdaq 20% proposal)</th><td class="num" data-label="For">6,629,672</td><td class="num" data-label="Against">118,489</td><td class="num" data-label="Abstain">4,584</td></tr><tr><th scope="row">2026 plan amendment</th><td class="num" data-label="For">6,318,847</td><td class="num" data-label="Against">422,993</td><td class="num" data-label="Abstain">10,905</td></tr></tbody></table></div>
+        <p class="tbl-note">Results as reported by the company. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.07</a></p>
+      </div>
+      <div class="s6 vote reveal" style="--d:.08s">
+        <h3 class="mini-h">The plan amendment, and a bylaw change</h3>
+        <p class="vote-t">The plan amendment raised the 2026 plan&rsquo;s share reserve by 20,000,000 shares, from 2,072,125 to 22,072,125, and from Jan&nbsp;1 each year sets the reserve at 15% of the fully diluted capitalization at the prior year-end. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.02</a></p>
+        <p class="vote-t">On Jul&nbsp;30 the board had cut the quorum for stockholder meetings to 33&#8531;% of the shares outstanding and entitled to vote. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026083952/ea0300044-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;31, Item 5.03</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ 05 THE DATED RECORD (tint stock): traction + press in one calendar ledger. Every row is a filing; none is a press release the company has not filed. ============ -->
+<section id="record-2026" class="sec-tint mag-sec" aria-labelledby="rec-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">04</span><span class="folio-t">The dated record</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">Jan&nbsp;to Sep&nbsp;2026</span></div>
+    <header class="rec-head reveal">
+      <h2 id="rec-h"><span class="lt">What the filings record</span> since the start of 2026</h2>
+      <p class="lead">Each entry is linked to the filing that reports it, oldest first within each month.</p>
+    </header>
+    <ol class="cal">
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Jan</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Jan&nbsp;8</span><span class="cal-t"><b>Bridge loan.</b> Alpha Capital Anstalt lent $200K on a promissory note at 10% a year; the note was repaid at the closing of the business combination. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a></span></li>
+          <li><span class="cal-d">Jan&nbsp;14</span><span class="cal-t"><b>Bank loan.</b> A $524K bridge loan from a bank at 10.50% a year, repaid Jan&nbsp;31. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Feb</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Feb&nbsp;5</span><span class="cal-t"><b>Bridge loan.</b> Alpha lent $1.0M at 10%, due on the earlier of the closing or Feb&nbsp;18. The 10-Q says the note was due but not yet repaid at its date and that its interest rate was adjusted under the note&rsquo;s terms. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a></span></li>
+          <li><span class="cal-d">Feb&nbsp;18</span><span class="cal-t"><b>Shell company vote.</b> Trailblazer&rsquo;s stockholders approved the business combination. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Mar</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Mar&nbsp;2</span><span class="cal-t"><b>Bank loan.</b> A $131K bridge loan, repaid and drawn again at 11%, repaid Mar&nbsp;26. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a></span></li>
+          <li><span class="cal-d">Mar&nbsp;9 and 13</span><span class="cal-t"><b>Bridge loans.</b> Alpha lent $450K and $350K at 10%. The $350K note was repaid at closing; the 10-Q says the $450K note, due Mar&nbsp;19, was due but not yet repaid at its date. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a></span></li>
+          <li><span class="cal-d">Mar&nbsp;26 to 27</span><span class="cal-t"><b>Closing.</b> The combination closed in two steps. Trailblazer Holdings became Cyabra, Inc. and its common stock began trading on the Nasdaq Global Market as CYAB; the private placement closed on Mar&nbsp;27. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></span></li>
+          <li><span class="cal-d">Mar&nbsp;26</span><span class="cal-t"><b>Annual report of the shell company.</b> The 10-K filed this day covers Trailblazer Holdings for 2025, before the merger; it reports a net loss of $156,348 for that shell and is not Cyabra&rsquo;s operating record. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026034218/ea0282729-10k_trailblazer.htm" target="_blank" rel="noopener">10-K (shell), Item 7</a></span></li>
+          <li><span class="cal-d">Mar&nbsp;31</span><span class="cal-t"><b>Current report.</b> An 8-K carrying Legacy Cyabra&rsquo;s audited results for 2025 and 2024, the appointment of its officers and directors, and the terms of the new preferred stock. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K, Mar&nbsp;31, 2026</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">May</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">May&nbsp;13</span><span class="cal-t"><b>Nasdaq notice.</b> Nasdaq told the company that the market value of its listed securities had been below $50 million for 30 consecutive business days (Rule 5450(b)(2)(A)). The compliance period runs to Nov&nbsp;9, 2026. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, Part II Item 1A</a></span></li>
+          <li><span class="cal-d">May&nbsp;14</span><span class="cal-t"><b>Equity awards.</b> 1,615,536 restricted stock units granted to employees, advisors and board members, with a total fair value of $968,000. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 4</a></span></li>
+          <li><span class="cal-d">May&nbsp;15</span><span class="cal-t"><b>First-quarter report.</b> Revenue for the quarter was $1.4M against $1.3M a year earlier, up 12%; cash was $3.1M at Mar&nbsp;31. The report also states substantial doubt about going concern. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, Note 1</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Jun</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Jun&nbsp;9 to 12</span><span class="cal-t"><b>Nasdaq notices.</b> Nasdaq told the company on Jun&nbsp;9 that it was below two continued-listing requirements, the minimum bid price and the minimum market value of publicly held shares. The company reported both on Jun&nbsp;12 and has until Dec&nbsp;7, 2026 to regain compliance. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026068252/ea0294589-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jun&nbsp;12, Item 3.01</a></span></li>
+          <li><span class="cal-d">Jun&nbsp;22</span><span class="cal-t"><b>Investor presentation.</b> The company furnished a June 2026 investor presentation on Form 8-K, posted to its website. It is furnished, not filed. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026070606/ea0295445-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jun&nbsp;22, Item 7.01</a></span></li>
+          <li><span class="cal-d">Jun&nbsp;29</span><span class="cal-t"><b>Advisory fees paid in shares.</b> Cyabra issued 262,500 shares each to LifeSci Capital and Ladenburg Thalmann in payment of $1.05M advisory fees each. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Jul</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Jul&nbsp;9 to 10</span><span class="cal-t"><b>Offering.</b> About $6M gross, about $5.3M net, of shares, pre-funded warrants and Series A and Series B warrants; the same day the company signed the exchange and conversion agreements with preferred holders. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Items 1.01 and 5.03</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 9</a></span></li>
+          <li><span class="cal-d">Jul&nbsp;30 to 31</span><span class="cal-t"><b>Bylaws.</b> The board cut the stockholder-meeting quorum to 33&#8531;% of the shares issued and outstanding and entitled to vote. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026083952/ea0300044-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;31, Item 5.03</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Aug</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Aug&nbsp;11</span><span class="cal-t"><b>Proxy statement.</b> The company filed its proxy statement for a Sep&nbsp;2 special meeting to vote on the July issuances and a larger equity plan; the 8-K of Sep&nbsp;3 calls it filed Aug&nbsp;10, and EDGAR shows Aug&nbsp;11. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026087367/ea0301432-def14a_cyabra.htm" target="_blank" rel="noopener">DEF 14A, Aug&nbsp;11, 2026</a></span></li>
+          <li><span class="cal-d">Aug&nbsp;13</span><span class="cal-t"><b>Second-quarter report.</b> Revenue $1.9M, up 39%; ARR $8.1M; cash $0.8M; substantial doubt about going concern. 17,597,071 shares outstanding on the cover, dated Aug&nbsp;12. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q, Aug&nbsp;13, 2026</a></span></li>
+        </ol>
+      </li>
+      <li class="cal-m reveal">
+        <h3 class="cal-h">Sep</h3>
+        <ol class="cal-l">
+          <li><span class="cal-d">Sep&nbsp;2</span><span class="cal-t"><b>Special meeting.</b> Stockholders approved the share issuances in the July offering, the exchange agreement and the conversion agreements, and the plan amendment. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.07</a></span></li>
+          <li><span class="cal-d">Sep&nbsp;3</span><span class="cal-t"><b>Preferred terms amended.</b> Certificates of designation for the Series A and Series B preferred stock were amended to reduce the conversion price to $0.435 and remove certain anti-dilution protections. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></span></li>
+          <li><span class="cal-d">Sep&nbsp;9</span><span class="cal-t"><b>Closings.</b> The exchange with Alpha and the conversion of the preferred stock closed. The securities issued are counted in the plate above. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></span></li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</section>
+<!-- ============ 06 DISCLOSURES (the gravest band: darkest stock, heavier type, never louder than the filings): going concern in the company's own words with its plan beside the caveat, then what the filings say about cash, listing, dilution, related parties and the company-defined measures. ============ -->
+<section id="disclosures" class="sec-dark sec-dark-2 mag-sec dis" aria-labelledby="dis-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">05</span><span class="folio-t">Disclosures</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">What the company says about its own risks</span></div>
+    <div class="mag">
+      <header class="s5 dis-head sticky-h reveal">
+        <h2 id="dis-h"><span class="lt">Read these</span> before the rest</h2>
+        <p class="lead">The company&rsquo;s own filings state substantial doubt about its ability to continue as a going concern. This is the passage, in its words, followed by the other items a reader of the filings would weigh.</p>
+      </header>
+      <div class="s7 gc reveal" style="--d:.06s">
+        <p class="gc-k">Going concern, 10-Q Note 1 <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a></p>
+        <blockquote class="gc-q">
+          <p>Based on the projected cash flows and cash balance as of June 30, 2026, management is of the opinion that without further fund raising it will not have sufficient resources to enable it to continue its operating activities, including the development and marketing of its products for a period of 12 months from the balance sheet date of these consolidated financial statements. As a result, there is a substantial doubt about the Company&rsquo;s ability to continue as a going concern.</p>
+        </blockquote>
+        <div class="gc-pair">
+          <div><h3 class="gc-h">Management&rsquo;s plans</h3><p>Continuing commercialization of the Company&rsquo;s products and securing sufficient funding through the sale of additional equity securities. There are no assurances however, that the Company will be successful in obtaining the level of financing needed for its operations.</p></div>
+          <div><h3 class="gc-h">If those plans do not succeed</h3><p>If the Company is unsuccessful in commercializing its products and securing sufficient funding, it may need to reduce activities, curtail or even cease operations.</p></div>
+        </div>
+        <p class="gc-f">Accumulated losses were $61.6M at Jun&nbsp;30, 2026, and cash used in operating activities was $5.0M for the six months.</p>
+      </div>
+
+      <ol class="s12 dis-list">
+        <li class="dis-i reveal">
+          <span class="dis-n">01</span>
+          <div class="dis-b"><h3>Cash and what is due</h3>
+            <p>Cash was $0.8M at Jun&nbsp;30, 2026 against $13.9M of current liabilities. Two of Alpha Capital&rsquo;s bridge notes, $1.0M dated Feb&nbsp;5 and $450K dated Mar&nbsp;9, were due but not yet repaid as of the date of the 10-Q&rsquo;s financial statements, and $1.631M owed to the law firm Lowenstein Sandler, including interest and premium, was due but not yet repaid at Jun&nbsp;30. The July offering raised about $5.3M net after the balance-sheet date. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 1</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 9</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">02</span>
+          <div class="dis-b"><h3>Nasdaq listing</h3>
+            <p>The 10-Q for Mar&nbsp;31 reports an earlier notice: on May&nbsp;13, 2026 Nasdaq said the market value of the company&rsquo;s listed securities had been below $50 million for 30 consecutive business days (Rule 5450(b)(2)(A)), with a compliance period to Nov&nbsp;9, 2026; the filings reviewed after May&nbsp;15 do not say whether it was resolved. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, Part II Item 1A</a> On Jun&nbsp;9, 2026 Nasdaq notified the company that its bid price had closed below $1.00 for 30 consecutive business days (Rule 5450(a)(1)) and that the market value of its publicly held shares had been below $15,000,000 for 30 consecutive business days (Rule 5450(b)(2)(C)). It has until Dec&nbsp;7, 2026 to regain compliance with both. It may be eligible for a second 180-day period on the bid-price requirement if it meets the market-value requirement and the other initial listing standards, and in its Jun&nbsp;12 8-K it said it may consider transferring to the Nasdaq Capital Market. A delisting determination could be appealed to a hearings panel. The July offering was priced at $0.435 a share. The Aug&nbsp;11 proxy statement describes the common stock as listed on the Nasdaq Capital Market, while the 10-Qs and the Jun&nbsp;12 8-K say Global Market; the filings reviewed announce no transfer. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026068252/ea0294589-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jun&nbsp;12, Item 3.01</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">8-K Jul&nbsp;10, Item 1.01</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026087367/ea0301432-def14a_cyabra.htm" target="_blank" rel="noopener">DEF 14A, Aug&nbsp;11, 2026</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">03</span>
+          <div class="dis-b"><h3>Dilution</h3>
+            <p>The shares, pre-funded warrants and warrants issued in July and September, counted on the plate above, are about eight times the 17.6 million shares outstanding on the 10-Q cover (calculated). The Series A and Series B preferred stock&rsquo;s conversion price was reduced to $0.435 and certain anti-dilution protections were removed. The 2026 equity plan reserve was raised to 22,072,125 shares and now grows each year to 15% of the fully diluted capitalization. Warrants issued in March have an exercise price that adjusts for lower-priced issuances, to a floor of $1.46. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;3, Item 5.02</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">04</span>
+          <div class="dis-b"><h3>Alpha Capital Anstalt, an affiliate of the SPAC sponsor</h3>
+            <p>Alpha, a Liechtenstein company, is an affiliate of Trailblazer&rsquo;s sponsor. It lent Cyabra $3.4M of the $6.0M of 2024 convertible notes, made further loans in 2025 and 2026, and held the Series C preferred stock it exchanged on Sep&nbsp;9 for pre-funded warrants and Series A and Series B warrants. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Introductory Note</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, Note 8</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">8-K Sep&nbsp;10, Item 3.02</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">05</span>
+          <div class="dis-b"><h3>Measures the company defines</h3>
+            <p>ARR and adjusted EBITDA are not GAAP. The company says ARR &ldquo;is not a forecast&rdquo; and should be viewed independently of revenue and deferred revenue; it was $6.1M at both Dec&nbsp;31, 2024 and Dec&nbsp;31, 2025, which the company attributes to renewals moving into early 2026 and longer public-sector procurement cycles. The first-half 2026 adjusted EBITDA excludes $5.4M of share-based compensation and $3.4M of non-recurring business-combination costs. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Mar&nbsp;31, MD&amp;A</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 2.01</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">06</span>
+          <div class="dis-b"><h3>A short revenue history</h3>
+            <p>Legacy Cyabra began offering its application in 2022 and, the 10-Q says, has generated limited revenues; the company also says it will need significant revenues to reach profitability and may never do so. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">10-Q Jun&nbsp;30, MD&amp;A</a></p></div>
+        </li>
+        <li class="dis-i reveal">
+          <span class="dis-n">07</span>
+          <div class="dis-b"><h3>Which annual report is which</h3>
+            <p>The 10-K filed Mar&nbsp;26, 2026 is the shell company&rsquo;s, for 2025, before the merger. Cyabra&rsquo;s audited results for 2025 and 2024 are in the 8-K filed Mar&nbsp;31, 2026, and the auditor&rsquo;s report on them contains a going-concern paragraph. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026034218/ea0282729-10k_trailblazer.htm" target="_blank" rel="noopener">10-K (shell), cover</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">8-K Mar&nbsp;31, Item 9.01(a)</a></p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- ============ 07 THE RECORD OF FILINGS + CONTACT IR (white stock) ============ -->
+<section id="record" class="sec-white mag-sec" aria-labelledby="fil-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">06</span><span class="folio-t">Filings and contact</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">Every filing this page draws on</span></div>
+    <div class="mag">
+      <header class="s5 reveal">
+        <h2 id="fil-h"><span class="lt">The filings</span> behind every figure</h2>
+        <p class="lead">Eleven filings from Mar&nbsp;26 to Sep&nbsp;10, 2026, each opening on sec.gov. Dollar figures on this page are as filed and rounded only where the text says so.</p>
+        <dl class="forms">
+          <div><dt>10-K</dt><dd>The annual report. The one used here was filed by the shell company before the merger.</dd></div>
+          <div><dt>10-Q</dt><dd>The quarterly report, with unaudited statements and the company&rsquo;s discussion of them.</dd></div>
+          <div><dt>8-K</dt><dd>A current report on a specific event, such as a closing, an offering or a notice from Nasdaq.</dd></div>
+          <div><dt>DEF 14A</dt><dd>The proxy statement sent to stockholders before a vote.</dd></div>
+        </dl>
+      </header>
+      <div class="s7 reveal" style="--d:.06s">
+        <div class="table-scroll"><table class="fin fl-t"><caption>Filings used, newest first, 2026</caption><thead><tr><th scope="col">Filed</th><th scope="col">Form</th><th scope="col">What it is</th><th scope="col"><span class="sr">Link</span></th></tr></thead><tbody><tr><td class="d" data-label="Filed">Sep&nbsp;10</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Closings of the Sep&nbsp;9 exchange and preferred-stock conversion</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026098557/ea0304948-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Sep&nbsp;10</span></a></td></tr><tr><td class="d" data-label="Filed">Sep&nbsp;3</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Special meeting results and the plan amendment</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026096962/ea0304485-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Sep&nbsp;3</span></a></td></tr><tr><td class="d" data-label="Filed">Aug&nbsp;13</td><th scope="row">10-Q</th><td class="terms" data-label="What it is">Quarter ended Jun&nbsp;30, 2026: statements, going concern</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026088752/ea0300928-10q_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 10-Q filed Aug&nbsp;13</span></a></td></tr><tr><td class="d" data-label="Filed">Aug&nbsp;11</td><th scope="row">DEF 14A</th><td class="terms" data-label="What it is">Proxy statement for the Sep&nbsp;2 special meeting</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026087367/ea0301432-def14a_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> DEF 14A filed Aug&nbsp;11</span></a></td></tr><tr><td class="d" data-label="Filed">Jul&nbsp;31</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Bylaw amendment on quorum</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026083952/ea0300044-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Jul&nbsp;31</span></a></td></tr><tr><td class="d" data-label="Filed">Jul&nbsp;10</td><th scope="row">8-K</th><td class="terms" data-label="What it is">July offering, exchange and conversion agreements</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026077124/ea0297600-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Jul&nbsp;10</span></a></td></tr><tr><td class="d" data-label="Filed">Jun&nbsp;22</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Investor presentation furnished</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026070606/ea0295445-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Jun&nbsp;22</span></a></td></tr><tr><td class="d" data-label="Filed">Jun&nbsp;12</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Nasdaq notices of Jun&nbsp;9</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026068252/ea0294589-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Jun&nbsp;12</span></a></td></tr><tr><td class="d" data-label="Filed">May&nbsp;15</td><th scope="row">10-Q</th><td class="terms" data-label="What it is">Quarter ended Mar&nbsp;31, 2026</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026057819/ea0290479-10q_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 10-Q filed May&nbsp;15</span></a></td></tr><tr><td class="d" data-label="Filed">Mar&nbsp;31</td><th scope="row">8-K</th><td class="terms" data-label="What it is">Completion of the business combination: Legacy Cyabra&rsquo;s 2025 and 2024 results, officers and directors, preferred stock terms</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026036722/ea0283362-8k_cyabra.htm" target="_blank" rel="noopener">Open<span class="sr"> 8-K filed Mar&nbsp;31</span></a></td></tr><tr><td class="d" data-label="Filed">Mar&nbsp;26</td><th scope="row">10-K</th><td class="terms" data-label="What it is">The shell company&rsquo;s annual report for 2025, before the merger (not Cyabra&rsquo;s operating results)</td><td class="lk"><a class="doc-l" href="https://www.sec.gov/Archives/edgar/data/2032341/000121390026034218/ea0282729-10k_trailblazer.htm" target="_blank" rel="noopener">Open<span class="sr"> 10-K filed Mar&nbsp;26</span></a></td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec-tint mag-sec contact-sec" aria-labelledby="con-h">
+  <div class="wrap">
+    <div class="folio reveal"><span class="folio-n">07</span><span class="folio-t">Contact IR</span><i class="folio-rule motif-rule" aria-hidden="true"></i><span class="folio-s">The company&rsquo;s own channels</span></div>
+    <div class="mag">
+      <header class="s5 reveal">
+        <h2 id="con-h"><span class="lt">Ask the company,</span> not this page</h2>
+        <p class="lead">This is an unofficial concept page. Investor questions, alerts and the live quote belong to the company&rsquo;s investor site.</p>
+      </header>
+      <div class="s7 contact-grid reveal" style="--d:.06s">
+        <div class="contact-col">
+          <h3 class="mini-h">Investor site</h3>
+          <p><a class="doc-l" href="https://invest.cyabra.com/" target="_blank" rel="noopener">invest.cyabra.com <span aria-hidden="true">&nearr;</span></a></p>
+          <p><a class="doc-l" href="https://cyabra.com/" target="_blank" rel="noopener">cyabra.com <span aria-hidden="true">&nearr;</span></a></p>
+          <p><a class="doc-l" href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0002032341&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings on EDGAR <span aria-hidden="true">&nearr;</span></a></p>
+        </div>
+        <div class="contact-col">
+          <h3 class="mini-h">Principal executive offices</h3>
+          <address>Cyabra, Inc.<br>13 Gershon Shatz<br>Tel Aviv 6997543, Israel<br>Nasdaq: CYAB &middot; CIK 0002032341</address>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-logo" href="#hero" aria-label="Cyabra, back to the top"><img src="img/logo-reversed.svg" alt="Cyabra" width="238" height="82"></a>
+      <ul class="footer-links">
+        <li><a href="https://invest.cyabra.com/" target="_blank" rel="noopener">Official investor site</a></li>
+        <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0002032341&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings (EDGAR)</a></li>
+        <li><a href="https://cyabra.com/" target="_blank" rel="noopener">cyabra.com</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a href="#record-2026">The record</a></li>
+      </ul>
+    </div>
+    <p class="fls"><b>Sources and method:</b> Figures come from the company&rsquo;s quarterly reports on Form 10-Q for the quarters ended March 31, 2026 (filed May 15, 2026) and June 30, 2026 (filed August 13, 2026), its current report on Form 8-K filed March 31, 2026 (the audited results of Legacy Cyabra for 2025 and 2024), its other Forms 8-K and its proxy statement through September 10, 2026, each linked beside the item. Financial tables are in US dollars as filed (thousands, as the company reports them). The annual report on Form 10-K filed March 26, 2026 is the pre-merger shell company&rsquo;s and is not used for operating results. Annualized recurring revenue and adjusted EBITDA are measures the company defines and are not GAAP. The logo (its wordmark reversed to white on dark bands) and the two illustrations are the company&rsquo;s own, from cyabra.com, and the faint owl line art and the favicon are from invest.cyabra.com; the dilution plate is an original drawing from the share counts the filings state. This page shows no live share quote.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official Cyabra investor relations website. It is not affiliated with, endorsed by, or maintained by Cyabra, Inc. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://invest.cyabra.com/">invest.cyabra.com</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the company's ability to continue as a going concern and to raise the additional capital it says it needs, the dilution that would follow from the securities issued and issuable in 2026, the continued listing of its common stock on Nasdaq, the limited revenue history of its application, the company-defined measures it reports (ARR and adjusted EBITDA) which are not GAAP, its reliance on contracts with public-sector customers and their procurement timing, its operations in Israel, competition, and the protection of its technology. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote; the only prices of Cyabra shares it cites are the $0.435 and $0.4349 offering prices stated in the company's filings, with their dates; warrant exercise prices and Nasdaq thresholds are quoted as filed.</p>
+  </div>
+</footer>
+
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+<script>
+/* wave: hardened wave-field hero JS, inline value noise (no CDN import). Band: dark. Integrity: inert unless
+   #hero-motif.wave-motif exists; one static frame and no rAF loop under reduced motion; pauses off-screen, in a hidden
+   tab and whenever motion.js sets .paused (user toggle); first frame drawn synchronously so renders are never blank. */
+(function(){
+  var el=document.getElementById('hero-motif'); if(!el||!el.classList.contains('wave-motif')) return;
+  var NS='http://www.w3.org/2000/svg', cs=getComputedStyle(el);
+  var STROKE=(cs.getPropertyValue('--motif-stroke')||'').trim()||'rgba(255,255,255,.28)';
+  var OP=(cs.getPropertyValue('--motif-stroke-op')||'').trim()||'.26';
+  var BASE_GAP=parseFloat(cs.getPropertyValue('--motif-gap'))||8;
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* 2D value noise, deterministic, range [-1,1] */
+  function makeNoise2D(seed){
+    var p=new Uint8Array(512),i,j,t,r=(seed>>>0)||1;
+    for(i=0;i<256;i++)p[i]=i;
+    for(i=255;i>0;i--){r=(r*1664525+1013904223)>>>0;j=r%(i+1);t=p[i];p[i]=p[j];p[j]=t;}
+    for(i=0;i<256;i++)p[i+256]=p[i];
+    function g(ix,iy){return p[(p[ix&255]+(iy&255))&255]/127.5-1;}
+    function fade(u){return u*u*u*(u*(u*6-15)+10);}
+    return function(x,y){
+      var xi=Math.floor(x),yi=Math.floor(y),fx=fade(x-xi),fy=fade(y-yi);
+      var a=g(xi,yi)+(g(xi+1,yi)-g(xi,yi))*fx, b=g(xi,yi+1)+(g(xi+1,yi+1)-g(xi,yi+1))*fx;
+      return a+(b-a)*fy;
+    };
+  }
+  var noise2D=makeNoise2D(20240917);   /* fixed seed: renders are reproducible for verify */
+
+  var svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('aria-hidden','true');
+  svg.style.cssText='position:absolute;top:0;left:0;display:block';
+  el.appendChild(svg);
+
+  var W=0,H=0,gap=BASE_GAP,lines=[],paths=[],rect={left:0,top:0};
+  var mouse={x:-9999,y:-9999,sx:-9999,sy:-9999,lx:0,ly:0,vs:0,a:0,set:false};
+  var phase=0,last=-1,rafId=0,running=false,visible=!('IntersectionObserver' in window),built=false,queued=false,paused=false;
+
+  function cacheRect(){var r=el.getBoundingClientRect();rect.left=r.left;rect.top=r.top;return r;}
+  function build(){
+    var r=cacheRect(),i,j; W=Math.round(r.width); H=Math.round(r.height);
+    for(i=0;i<paths.length;i++)paths[i].remove();
+    paths=[];lines=[];built=false;
+    if(W<2||H<2) return;                       /* 0x0 at init: the ResizeObserver retries */
+    svg.style.width=W+'px'; svg.style.height=H+'px';
+    gap=W<900?Math.max(BASE_GAP,14):BASE_GAP;  /* coarser grid on phones */
+    var cols=Math.ceil((W+200)/gap),rows=Math.ceil((H+30)/gap);
+    var x0=(W-gap*cols)/2,y0=(H-gap*rows)/2;
+    for(i=0;i<cols;i++){
+      var pts=[];
+      for(j=0;j<rows;j++)pts.push({x:x0+gap*i,y:y0+gap*j,wx:0,wy:0,cx:0,cy:0,vx:0,vy:0});
+      var path=document.createElementNS(NS,'path');
+      path.setAttribute('fill','none');
+      path.setAttribute('stroke',STROKE);
+      path.setAttribute('stroke-opacity',OP);
+      path.setAttribute('stroke-width','1');
+      svg.appendChild(path); paths.push(path); lines.push(pts);
+    }
+    built=true;
+  }
+  function step(){
+    var i,j,pts,p,m,dx,dy,d,l,s,f;
+    mouse.sx+=(mouse.x-mouse.sx)*0.1; mouse.sy+=(mouse.y-mouse.sy)*0.1;
+    dx=mouse.x-mouse.lx; dy=mouse.y-mouse.ly; d=Math.hypot(dx,dy);
+    mouse.vs+=(d-mouse.vs)*0.1; mouse.vs=Math.min(100,mouse.vs);
+    mouse.lx=mouse.x; mouse.ly=mouse.y; mouse.a=Math.atan2(dy,dx);
+    for(i=0;i<lines.length;i++){ pts=lines[i];
+      for(j=0;j<pts.length;j++){ p=pts[j];
+        m=noise2D((p.x+phase*0.008)*0.003,(p.y+phase*0.003)*0.002)*8;
+        p.wx=Math.cos(m)*12; p.wy=Math.sin(m)*6;
+        dx=p.x-mouse.sx; dy=p.y-mouse.sy; d=Math.hypot(dx,dy); l=Math.max(175,mouse.vs);
+        if(d<l){ s=1-d/l; f=Math.cos(d*0.001)*s;
+          p.vx+=Math.cos(mouse.a)*f*l*mouse.vs*0.00035;
+          p.vy+=Math.sin(mouse.a)*f*l*mouse.vs*0.00035; }
+        p.vx+=(0-p.cx)*0.01; p.vy+=(0-p.cy)*0.01; p.vx*=0.95; p.vy*=0.95;
+        p.cx=Math.max(-50,Math.min(50,p.cx+p.vx));
+        p.cy=Math.max(-50,Math.min(50,p.cy+p.vy));
+      }
+    }
+  }
+  function draw(){
+    var i,j,pts,p,d;
+    for(i=0;i<lines.length;i++){
+      pts=lines[i]; if(pts.length<2||!paths[i])continue; p=pts[0];
+      d='M '+(p.x+p.wx).toFixed(1)+' '+(p.y+p.wy).toFixed(1);
+      for(j=1;j<pts.length;j++){p=pts[j];
+        d+=' L '+(p.x+p.wx+p.cx).toFixed(1)+' '+(p.y+p.wy+p.cy).toFixed(1);}
+      paths[i].setAttribute('d',d);
+    }
+  }
+  function tick(t){
+    if(!running)return;
+    var dt=last<0?16:Math.min(t-last,64); last=t; phase+=dt;  /* phase survives a pause */
+    step(); draw(); rafId=requestAnimationFrame(tick);
+  }
+  function start(){ if(running||reduce||!built)return; running=true; last=-1; rafId=requestAnimationFrame(tick); }
+  function stop(){ running=false; if(rafId)cancelAnimationFrame(rafId); rafId=0; }
+  function sync(){ if(visible&&!document.hidden&&built&&!reduce&&!paused)start(); else stop(); }
+  function init(){ build(); if(built){step();draw();} }      /* build + paint ONE frame, synchronously */
+
+  init();                       /* never wait for a rAF to paint the first frame (headless renders, background tabs) */
+
+  if('ResizeObserver' in window){
+    var ro=new ResizeObserver(function(){                    /* rAF-throttled: one rebuild per frame */
+      if(queued)return; queued=true;
+      requestAnimationFrame(function(){
+        queued=false;
+        var r=el.getBoundingClientRect();
+        if(built&&Math.round(r.width)===W&&Math.round(r.height)===H)return;   /* no real size change */
+        var was=running; stop(); init();                     /* reduce: init() is the whole story */
+        if(!reduce&&(was||visible))sync();
+      });
+    });
+    ro.observe(el);
+  }
+
+  if(!reduce){
+    if('IntersectionObserver' in window){
+      var mo=new IntersectionObserver(function(en){visible=en[0].isIntersecting;sync();},{threshold:0});
+      mo.observe(el);
+    }
+    document.addEventListener('visibilitychange',sync);
+    if('MutationObserver' in window)new MutationObserver(function(){paused=el.classList.contains('paused');sync();})
+      .observe(el,{attributes:true,attributeFilter:['class']});           /* motion.js .paused: off-screen, hidden, user */
+    window.addEventListener('scroll',cacheRect,{passive:true});
+    window.addEventListener('pointermove',function(e){        /* passive, never preventDefault, never touchmove */
+      mouse.x=e.clientX-rect.left; mouse.y=e.clientY-rect.top;
+      if(!mouse.set){mouse.sx=mouse.x;mouse.sy=mouse.y;mouse.lx=mouse.x;mouse.ly=mouse.y;mouse.set=true;}
+    },{passive:true});
+    sync();
+  }
+})();
+</script>
+</body>
+</html>
